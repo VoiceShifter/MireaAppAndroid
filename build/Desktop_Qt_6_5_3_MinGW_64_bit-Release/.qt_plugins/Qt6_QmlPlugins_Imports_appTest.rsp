@@ -1,0 +1,14 @@
+-rootPath
+F:/Source/Qt/Test
+-cmake-output
+-output-file
+F:/Source/Qt/Test/build/Desktop_Qt_6_5_3_MinGW_64_bit-Release/.qt_plugins/Qt6_QmlPlugins_Imports_appTest.cmake
+-importPath
+F:/Source/Qt/Test/build/Desktop_Qt_6_5_3_MinGW_64_bit-Release/Test
+-importPath
+F:/Source/Qt/Test/build/Desktop_Qt_6_5_3_MinGW_64_bit-Release
+-importPath
+E:/Qt/6.5.3/mingw_64/./qml
+-qrcFiles
+F:/Source/Qt/Test/build/Desktop_Qt_6_5_3_MinGW_64_bit-Release/.rcc/qmake_Test.qrc
+F:/Source/Qt/Test/build/Desktop_Qt_6_5_3_MinGW_64_bit-Release/.rcc/appTest_raw_qml_0.qrc

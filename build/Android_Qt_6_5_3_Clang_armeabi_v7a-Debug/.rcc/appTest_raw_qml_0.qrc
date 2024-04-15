@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="/Test/">
+    <file alias="qml/LoginPage.qml">F:/Source/Qt/Test/qml/LoginPage.qml</file>
+    <file alias="qml/Main.qml">F:/Source/Qt/Test/qml/Main.qml</file>
+    <file alias="qml/MyDir/ColorsNSizes.qml">F:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml</file>
+    <file alias="qml/MyDir/Icons/home.svg">F:/Source/Qt/Test/qml/MyDir/Icons/home.svg</file>
+    <file alias="qml/MyDir/MyDrawer.qml">F:/Source/Qt/Test/qml/MyDir/MyDrawer.qml</file>
+    <file alias="qml/Schedule.qml">F:/Source/Qt/Test/qml/Schedule.qml</file>
+    <file alias="qml/MyDir/Subject.qml">F:/Source/Qt/Test/qml/MyDir/Subject.qml</file>
+  </qresource>
+</RCC>
+

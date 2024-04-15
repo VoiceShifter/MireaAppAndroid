@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/Test">F:/Source/Qt/Test/build/Desktop_Qt_6_5_3_MinGW_64_bit-Release/Test</file>
+
+  </qresource>
+</RCC>
