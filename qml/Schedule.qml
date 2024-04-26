@@ -1,4 +1,6 @@
 import QtQuick
+import QtLocation 5.15
+import QtQuick.Controls
 import "MyDir"
 Item
 {
@@ -7,14 +9,15 @@ Item
     property int _XResolution: parent.width
     property int _YResolution: parent.height
 
-    ColorsNSizes
-    {
-        id: _Colors
-    }
+    // ColorsNSizes
+    // {
+    //     id: ColorsNSizes
+    // }
 
     MyDrawer
     {
         id: _Drawer
+        z:0
     }
 
     Rectangle
@@ -26,45 +29,14 @@ Item
         color: "#7881AE"
 
     }
-    Rectangle
-    {
-        z:7
-        id: _Menu
-        radius: 180
-        color: "#112D4E"
-        height: 100
-        width: 100
-        y:20
-        x:20
-        Text
-        {
-            text: qsTr("+")
-            font.pointSize: 36
-            color: "white"
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: -5
-        }
 
-
-    }
-    MouseArea
-    {
-        anchors.fill: _Menu
-        onClicked:
-        {
-            console.log("Button clicked")
-            _Drawer.position == 0 ? _Drawer.open(): _Drawer.close()
-
-        }
-    }
 
     Text {
         id: _Name
-        text: qsTr("<-- Понедельник -->")
-        anchors.horizontalCenter: _Breaker.horizontalCenter
-        anchors.bottom: _Breaker.top
-        anchors.bottomMargin: 10
+        text: "<-- Понедельник -->"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: _StudentName.bottom
+        anchors.topMargin: 20
         color: "white"
 
         font.bold: true
@@ -87,7 +59,7 @@ Item
         color: "white"
         width: parent.width - 60
         height: 5
-        anchors.top: _Menu.bottom
+        anchors.top: _Name.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 20
     }

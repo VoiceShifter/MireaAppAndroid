@@ -5,9 +5,14 @@ Rectangle
     id: _SubjectObj
     color: "#DBE2EF"
 
+    // ColorsNSizes
+    // {
+    //     id: ColorsNSizes
+    // }
+
     anchors.horizontalCenter: parent.horizontalCenter
-    width: parent.width * 4 / 5
-    height: 150
+    width: parent.width / ColorsNSizes._SubjectScaleX
+    height: parent.height / ColorsNSizes._SubjectScaleY
     radius: 25
 
     property string _SubjectName: ""

@@ -7,6 +7,9 @@
     <file alias="qml/MyDir/MyDrawer.qml">F:/Source/Qt/Test/qml/MyDir/MyDrawer.qml</file>
     <file alias="qml/Schedule.qml">F:/Source/Qt/Test/qml/Schedule.qml</file>
     <file alias="qml/MyDir/Subject.qml">F:/Source/Qt/Test/qml/MyDir/Subject.qml</file>
+    <file alias="qml/Attendance.qml">F:/Source/Qt/Test/qml/Attendance.qml</file>
+    <file alias="qml/MyDir/AttendanceLine.qml">F:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml</file>
+    <file alias="qml/MyDir/qmldir">F:/Source/Qt/Test/qml/MyDir/qmldir</file>
   </qresource>
 </RCC>
 

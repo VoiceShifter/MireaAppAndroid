@@ -1,9 +1,20 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+# include <QtNetwork>
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
+
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
+    QNetworkRequest request;
+    request.setUrl(QUrl("https://mirea.xyz/api/v1.3/groups/all"));
+
+    QNetworkReply *reply = manager->get(request);
+    QEventLoop loop;
+    QAbstractSocket::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
+    qDebug() << reply->readAll();
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/Test/qml/Main.qml"));

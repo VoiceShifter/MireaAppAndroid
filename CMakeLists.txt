@@ -18,6 +18,7 @@ qt_add_qml_module(appTest
     SOURCES
         src/main.cpp
 
+
     QML_FILES
         qml/LoginPage.qml
         qml/Main.qml
@@ -26,6 +27,10 @@ qt_add_qml_module(appTest
         qml/MyDir/MyDrawer.qml
         qml/Schedule.qml
         qml/MyDir/Subject.qml
+        qml/Attendance.qml
+        qml/MyDir/AttendanceLine.qml
+        qml/MyDir/qmldir
+
 
 
 

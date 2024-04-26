@@ -949,8 +949,10 @@
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
 	[
+		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Attendance_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/LoginPage_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Main_qml.cpp",
+		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/ColorsNSizes_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/MyDrawer_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp",
@@ -980,8 +982,10 @@
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 
 	[
+		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Attendance_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/LoginPage_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Main_qml.cpp",
+		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/ColorsNSizes_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/MyDrawer_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp",

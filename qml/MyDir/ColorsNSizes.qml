@@ -1,7 +1,22 @@
+pragma Singleton
+
 import QtQuick
 
 Item {
-    id: _ColorsNSizes
+
+    QtObject{
+        id: _Themes
+        readonly property var _Dark: ["#dbe2ef", "#7881ae", "#aab2cf", "#848cb5"]
+        readonly property var _Light: ["#10439F", "#874CCC", "#C65BCF", "#F27BBD"]
+    }
+    property var _CurrentTheme: _Themes._Dark
+    property var themes: _Themes
+
+    readonly property string _PrimaryPurple: _CurrentTheme[0]
+    readonly property string _SecondaryPurple: _CurrentTheme[1]
+    readonly property string _PrimaryBlue: _CurrentTheme[2]
+    readonly property string _PrimaryGray: _CurrentTheme[3]
+
     readonly property string _LightBlue: "#dbe2ef"
     readonly property string _LightPurple: "#7881ae"
     readonly property string _PowderBlue: "#aab2cf"
@@ -16,4 +31,11 @@ Item {
     readonly property double _TextFieldScale : 1.2
     readonly property double _ButtonScaleX : 2
     readonly property double _ButtonScaleY : 18.5
+
+    readonly property double _SubjectScaleX : 1.1
+    readonly property double _SubjectScaleY : 5
+
+    readonly property double _MenuButtonScaleX : 7
+
+    readonly property double _SideButtonScaleY : 8
 }

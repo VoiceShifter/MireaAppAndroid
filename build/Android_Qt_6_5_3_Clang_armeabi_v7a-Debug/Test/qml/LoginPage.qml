@@ -2,15 +2,17 @@ import QtQuick
 import QtLocation 5.15
 import QtQuick.Controls
 import "MyDir"
+
+
 Item {
 
     property int _XResolution: parent.width
     property int _YResolution: parent.height
 
-    ColorsNSizes
-    {
-        id: _ColorsNSizes
-    }
+    // ColorsNSizes
+    // {
+    //     id: ColorsNSizes
+    // }
 
     Rectangle
     {
@@ -40,14 +42,23 @@ Item {
             width: parent.width
             color: "#112D4E"
             y: parent.height / 2.5
-            radius: 90
+            radius: 60
             //<------------------------------------- Main Login screen
+            Popup
+            {
+                id: _Popup
+                width: _XResolution / ColorsNSizes._SubjectScaleX
+                height: _YResolution / ColorsNSizes._SubjectScaleY / 0.5
+                anchors.centerIn: parent
+
+            }
+
             Rectangle //Icon holder
             {
 
                 id: _Ico
                 radius: 180
-                height: _XResolution * _ColorsNSizes._IconHolderScale
+                height: _XResolution * ColorsNSizes._IconHolderScale
                 width: height
                 color: "#DBE2EF"
                 y: 20
@@ -55,8 +66,8 @@ Item {
                 Image
                 {
                     source: "MyDir/Icons/home.svg"
-                    sourceSize.width: _XResolution * _ColorsNSizes._IconHolderScale
-                    sourceSize.height: _XResolution * _ColorsNSizes._IconHolderScale
+                    sourceSize.width: _XResolution * ColorsNSizes._IconHolderScale
+                    sourceSize.height: _XResolution * ColorsNSizes._IconHolderScale
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.bottomMargin: 5
@@ -87,7 +98,7 @@ Item {
                 background: Rectangle
                 {
                     radius: 60
-                    implicitWidth: _XResolution / _ColorsNSizes._TextFieldScale
+                    implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
                     implicitHeight: 40
                     color: control.enabled ? "transparent" : "#7881ae"
                     border.color: control.enabled ? "#dbe2ef" : "transparent"
@@ -106,7 +117,7 @@ Item {
                 background: Rectangle
                 {
                     radius: 60
-                    implicitWidth: _XResolution / _ColorsNSizes._TextFieldScale
+                    implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
                     implicitHeight: 40
                     color: control.enabled ? "transparent" : "#7881ae"
                     border.color: control.enabled ? "#dbe2ef" : "transparent"
@@ -116,8 +127,8 @@ Item {
             {
                 id: _LoginButton
                 radius: 20
-                width: _XResolution / _ColorsNSizes._ButtonScaleX
-                height: _YResolution / _ColorsNSizes._ButtonScaleY
+                width: _XResolution / ColorsNSizes._ButtonScaleX
+                height: _YResolution / ColorsNSizes._ButtonScaleY
                 Text {
                     text: qsTr("ENTER")
                     font.pointSize: 24
@@ -135,6 +146,7 @@ Item {
                     anchors.fill: parent
                     onClicked:
                     {
+
                         _Loader.source = "Schedule.qml"
 
                     }

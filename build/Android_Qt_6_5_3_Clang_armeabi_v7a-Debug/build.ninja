@@ -59,7 +59,7 @@ build aab: phony appTest_make_aab
 #############################################
 # Order-only phony target for appTest
 
-build cmake_object_order_depends_target_appTest: phony || .rcc/qmlcache/appTest_qml/LoginPage_qml.cpp .rcc/qmlcache/appTest_qml/Main_qml.cpp .rcc/qmlcache/appTest_qml/MyDir/ColorsNSizes_qml.cpp .rcc/qmlcache/appTest_qml/MyDir/MyDrawer_qml.cpp .rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp .rcc/qmlcache/appTest_qml/Schedule_qml.cpp .rcc/qmlcache/appTest_qmlcache_loader.cpp .rcc/qrc_appTest_raw_qml_0.cpp .rcc/qrc_qmake_Test.cpp Test/appTest.qmltypes appTest_autogen appTest_autogen/mocs_compilation.cpp appTest_autogen/timestamp appTest_autogen_timestamp_deps appTest_tooling apptest_qmltyperegistrations.cpp meta_types/appTest_json_file_list.txt meta_types/appTest_json_file_list.txt.timestamp meta_types/qt6apptest_debug_metatypes.json meta_types/qt6apptest_debug_metatypes.json.gen
+build cmake_object_order_depends_target_appTest: phony || .rcc/qmlcache/appTest_qml/Attendance_qml.cpp .rcc/qmlcache/appTest_qml/LoginPage_qml.cpp .rcc/qmlcache/appTest_qml/Main_qml.cpp .rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp .rcc/qmlcache/appTest_qml/MyDir/ColorsNSizes_qml.cpp .rcc/qmlcache/appTest_qml/MyDir/MyDrawer_qml.cpp .rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp .rcc/qmlcache/appTest_qml/Schedule_qml.cpp .rcc/qmlcache/appTest_qmlcache_loader.cpp .rcc/qrc_appTest_raw_qml_0.cpp .rcc/qrc_qmake_Test.cpp Test/appTest.qmltypes appTest_autogen appTest_autogen/mocs_compilation.cpp appTest_autogen/timestamp appTest_autogen_timestamp_deps appTest_tooling apptest_qmltyperegistrations.cpp meta_types/appTest_json_file_list.txt meta_types/appTest_json_file_list.txt.timestamp meta_types/qt6apptest_debug_metatypes.json meta_types/qt6apptest_debug_metatypes.json.gen
 
 build CMakeFiles/appTest.dir/appTest_autogen/mocs_compilation.cpp.o: CXX_COMPILER__appTest_unscanned_Debug F$:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_appTest
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_OPENGL_LIB -DQT_QMLINTEGRATION_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_QUICK_LIB -DappTest_EXPORTS
@@ -149,6 +149,22 @@ build CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc
   OBJECT_DIR = CMakeFiles\appTest.dir
   OBJECT_FILE_DIR = CMakeFiles\appTest.dir\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.rcc\qmlcache\appTest_qml\MyDir
 
+build CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Attendance_qml.cpp.o: CXX_COMPILER__appTest_unscanned_Debug F$:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Attendance_qml.cpp || cmake_object_order_depends_target_appTest
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_OPENGL_LIB -DQT_QMLINTEGRATION_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_QUICK_LIB -DappTest_EXPORTS
+  DEP_FILE = CMakeFiles\appTest.dir\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.rcc\qmlcache\appTest_qml\Attendance_qml.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -g  -fno-limit-debug-info -std=gnu++17 -fPIC -fvisibility=default -fcolor-diagnostics -pthread
+  INCLUDES = -IF:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_autogen/include -IF:/Source/Qt/Test -isystem E:/Qt/6.5.3/android_armv7/include/QtQml/6.5.3 -isystem E:/Qt/6.5.3/android_armv7/include/QtQml/6.5.3/QtQml -isystem E:/Qt/6.5.3/android_armv7/include/QtCore/6.5.3 -isystem E:/Qt/6.5.3/android_armv7/include/QtCore/6.5.3/QtCore -isystem E:/Qt/6.5.3/android_armv7/include/QtCore -isystem E:/Qt/6.5.3/android_armv7/include -isystem E:/Qt/6.5.3/android_armv7/mkspecs/android-clang -isystem E:/Qt/6.5.3/android_armv7/include/QtQml -isystem E:/Qt/6.5.3/android_armv7/include/QtQmlIntegration -isystem E:/Qt/6.5.3/android_armv7/include/QtNetwork -isystem E:/Qt/6.5.3/android_armv7/include/QtQuick -isystem E:/Qt/6.5.3/android_armv7/include/QtGui -isystem E:/Qt/6.5.3/android_armv7/include/QtQmlModels -isystem E:/Qt/6.5.3/android_armv7/include/QtOpenGL
+  OBJECT_DIR = CMakeFiles\appTest.dir
+  OBJECT_FILE_DIR = CMakeFiles\appTest.dir\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.rcc\qmlcache\appTest_qml
+
+build CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp.o: CXX_COMPILER__appTest_unscanned_Debug F$:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp || cmake_object_order_depends_target_appTest
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_OPENGL_LIB -DQT_QMLINTEGRATION_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_QUICK_LIB -DappTest_EXPORTS
+  DEP_FILE = CMakeFiles\appTest.dir\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.rcc\qmlcache\appTest_qml\MyDir\AttendanceLine_qml.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -g  -fno-limit-debug-info -std=gnu++17 -fPIC -fvisibility=default -fcolor-diagnostics -pthread
+  INCLUDES = -IF:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_autogen/include -IF:/Source/Qt/Test -isystem E:/Qt/6.5.3/android_armv7/include/QtQml/6.5.3 -isystem E:/Qt/6.5.3/android_armv7/include/QtQml/6.5.3/QtQml -isystem E:/Qt/6.5.3/android_armv7/include/QtCore/6.5.3 -isystem E:/Qt/6.5.3/android_armv7/include/QtCore/6.5.3/QtCore -isystem E:/Qt/6.5.3/android_armv7/include/QtCore -isystem E:/Qt/6.5.3/android_armv7/include -isystem E:/Qt/6.5.3/android_armv7/mkspecs/android-clang -isystem E:/Qt/6.5.3/android_armv7/include/QtQml -isystem E:/Qt/6.5.3/android_armv7/include/QtQmlIntegration -isystem E:/Qt/6.5.3/android_armv7/include/QtNetwork -isystem E:/Qt/6.5.3/android_armv7/include/QtQuick -isystem E:/Qt/6.5.3/android_armv7/include/QtGui -isystem E:/Qt/6.5.3/android_armv7/include/QtQmlModels -isystem E:/Qt/6.5.3/android_armv7/include/QtOpenGL
+  OBJECT_DIR = CMakeFiles\appTest.dir
+  OBJECT_FILE_DIR = CMakeFiles\appTest.dir\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.rcc\qmlcache\appTest_qml\MyDir
+
 build CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_appTest_raw_qml_0.cpp.o: CXX_COMPILER__appTest_unscanned_Debug F$:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_appTest_raw_qml_0.cpp || cmake_object_order_depends_target_appTest
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_OPENGL_LIB -DQT_QMLINTEGRATION_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_QUICK_LIB -DappTest_EXPORTS
   DEP_FILE = CMakeFiles\appTest.dir\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.rcc\qrc_appTest_raw_qml_0.cpp.o.d
@@ -165,7 +181,7 @@ build CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc
 #############################################
 # Link the shared module libappTest_armeabi-v7a.so
 
-build libappTest_armeabi-v7a.so: CXX_MODULE_LIBRARY_LINKER__appTest_Debug CMakeFiles/appTest.dir/appTest_autogen/mocs_compilation.cpp.o CMakeFiles/appTest.dir/src/main.cpp.o CMakeFiles/appTest.dir/apptest_qmltyperegistrations.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_qmake_Test.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qmlcache_loader.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/LoginPage_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Main_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/ColorsNSizes_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/MyDrawer_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Schedule_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_appTest_raw_qml_0.cpp.o | E$:/Qt/6.5.3/android_armv7/lib/libQt6Quick_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6QmlModels_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6Qml_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6Network_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6OpenGL_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6Gui_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6Core_armeabi-v7a.so F$:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/23/libGLESv2.so F$:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/23/libEGL.so || appTest_autogen appTest_autogen_timestamp_deps appTest_tooling
+build libappTest_armeabi-v7a.so: CXX_MODULE_LIBRARY_LINKER__appTest_Debug CMakeFiles/appTest.dir/appTest_autogen/mocs_compilation.cpp.o CMakeFiles/appTest.dir/src/main.cpp.o CMakeFiles/appTest.dir/apptest_qmltyperegistrations.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_qmake_Test.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qmlcache_loader.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/LoginPage_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Main_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/ColorsNSizes_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/MyDrawer_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Schedule_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Attendance_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp.o CMakeFiles/appTest.dir/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_appTest_raw_qml_0.cpp.o | E$:/Qt/6.5.3/android_armv7/lib/libQt6Quick_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6QmlModels_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6Qml_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6Network_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6OpenGL_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6Gui_armeabi-v7a.so E$:/Qt/6.5.3/android_armv7/lib/libQt6Core_armeabi-v7a.so F$:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/23/libGLESv2.so F$:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/23/libEGL.so || appTest_autogen appTest_autogen_timestamp_deps appTest_tooling
   LANGUAGE_COMPILE_FLAGS = -DQT_QML_DEBUG   -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -g  -fno-limit-debug-info
   LINK_FLAGS = -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--gc-sections -Qunused-arguments -Wl,--no-undefined
   LINK_LIBRARIES = E:/Qt/6.5.3/android_armv7/lib/libQt6Quick_armeabi-v7a.so  E:/Qt/6.5.3/android_armv7/lib/libQt6QmlModels_armeabi-v7a.so  E:/Qt/6.5.3/android_armv7/lib/libQt6Qml_armeabi-v7a.so  E:/Qt/6.5.3/android_armv7/lib/libQt6Network_armeabi-v7a.so  E:/Qt/6.5.3/android_armv7/lib/libQt6OpenGL_armeabi-v7a.so  E:/Qt/6.5.3/android_armv7/lib/libQt6Gui_armeabi-v7a.so  E:/Qt/6.5.3/android_armv7/lib/libQt6Core_armeabi-v7a.so  -llog  -pthread  F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/23/libGLESv2.so  F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/23/libEGL.so   -latomic -lm
@@ -227,7 +243,7 @@ build all_qmllint_module: phony appTest_qmllint_module
 #############################################
 # Utility command for appTest_tooling
 
-build appTest_tooling: phony Test/qml/LoginPage.qml Test/qml/Main.qml Test/qml/MyDir/ColorsNSizes.qml Test/qml/MyDir/Icons/home.svg Test/qml/MyDir/MyDrawer.qml Test/qml/Schedule.qml Test/qml/MyDir/Subject.qml
+build appTest_tooling: phony Test/qml/LoginPage.qml Test/qml/Main.qml Test/qml/MyDir/ColorsNSizes.qml Test/qml/MyDir/Icons/home.svg Test/qml/MyDir/MyDrawer.qml Test/qml/Schedule.qml Test/qml/MyDir/Subject.qml Test/qml/Attendance.qml Test/qml/MyDir/AttendanceLine.qml Test/qml/MyDir/qmldir
 
 
 #############################################
@@ -435,9 +451,27 @@ build .rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp | ${cmake_ninja_workdir}.r
 
 
 #############################################
+# Custom command for .rcc\qmlcache\appTest_qml\Attendance_qml.cpp
+
+build .rcc/qmlcache/appTest_qml/Attendance_qml.cpp | ${cmake_ninja_workdir}.rcc/qmlcache/appTest_qml/Attendance_qml.cpp: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/bin/qmlcachegen.exe F$:/Source/Qt/Test/qml/Attendance.qml .rcc/qmake_Test.qrc .rcc/appTest_raw_qml_0.qrc Test/appTest.qmltypes Test/qmldir || appTest_autogen appTest_autogen_timestamp_deps appTest_tooling
+  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug && E:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml && F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.qt\bin\qt_setup_tool_path.bat E:/Qt/6.5.3/mingw_64/./bin/qmlcachegen.exe --bare --resource-path /Test/qml/Attendance.qml -I F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug -I E:/Qt/6.5.3/android_armv7/./qml -i F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test/qmldir --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmake_Test.qrc --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc -o F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Attendance_qml.cpp F:/Source/Qt/Test/qml/Attendance.qml"
+  DESC = Generating .rcc/qmlcache/appTest_qml/Attendance_qml.cpp
+  restat = 1
+
+
+#############################################
+# Custom command for .rcc\qmlcache\appTest_qml\MyDir\AttendanceLine_qml.cpp
+
+build .rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp | ${cmake_ninja_workdir}.rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/bin/qmlcachegen.exe F$:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml .rcc/qmake_Test.qrc .rcc/appTest_raw_qml_0.qrc Test/appTest.qmltypes Test/qmldir || appTest_autogen appTest_autogen_timestamp_deps appTest_tooling
+  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug && E:\Qt\Tools\CMake_64\bin\cmake.exe -E make_directory F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir && F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.qt\bin\qt_setup_tool_path.bat E:/Qt/6.5.3/mingw_64/./bin/qmlcachegen.exe --bare --resource-path /Test/qml/MyDir/AttendanceLine.qml -I F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug -I E:/Qt/6.5.3/android_armv7/./qml -i F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test/qmldir --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmake_Test.qrc --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc -o F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp F:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml"
+  DESC = Generating .rcc/qmlcache/appTest_qml/MyDir/AttendanceLine_qml.cpp
+  restat = 1
+
+
+#############################################
 # Custom command for .rcc\qrc_appTest_raw_qml_0.cpp
 
-build .rcc/qrc_appTest_raw_qml_0.cpp | ${cmake_ninja_workdir}.rcc/qrc_appTest_raw_qml_0.cpp: CUSTOM_COMMAND F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/Icons/home.svg F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml .rcc/appTest_raw_qml_0.qrc E$:/Qt/6.5.3/mingw_64/./bin/rcc.exe || appTest_autogen appTest_autogen_timestamp_deps appTest_tooling
+build .rcc/qrc_appTest_raw_qml_0.cpp | ${cmake_ninja_workdir}.rcc/qrc_appTest_raw_qml_0.cpp: CUSTOM_COMMAND F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/Icons/home.svg F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml F$:/Source/Qt/Test/qml/Attendance.qml F$:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml F$:/Source/Qt/Test/qml/MyDir/qmldir .rcc/appTest_raw_qml_0.qrc E$:/Qt/6.5.3/mingw_64/./bin/rcc.exe || appTest_autogen appTest_autogen_timestamp_deps appTest_tooling
   COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug && E:\Qt\6.5.3\mingw_64\.\bin\rcc.exe --output F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_appTest_raw_qml_0.cpp --name appTest_raw_qml_0 F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc --no-zstd"
   DESC = Running rcc for resource appTest_raw_qml_0
   restat = 1
@@ -471,21 +505,21 @@ build CMakeFiles/appTest_qmltyperegistration | ${cmake_ninja_workdir}CMakeFiles/
 #############################################
 # Custom command for CMakeFiles\appTest_qmllint
 
-build CMakeFiles/appTest_qmllint | ${cmake_ninja_workdir}CMakeFiles/appTest_qmllint: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/bin/qmllint.exe F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml || all_qmltyperegistrations appTest_qmltyperegistration
-  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.qt\bin\qt_setup_tool_path.bat E:/Qt/6.5.3/mingw_64/bin/qmllint.exe --bare -I F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug -I E:/Qt/6.5.3/android_armv7/./qml --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmake_Test.qrc --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc F:/Source/Qt/Test/qml/LoginPage.qml F:/Source/Qt/Test/qml/Main.qml F:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F:/Source/Qt/Test/qml/Schedule.qml F:/Source/Qt/Test/qml/MyDir/Subject.qml"
+build CMakeFiles/appTest_qmllint | ${cmake_ninja_workdir}CMakeFiles/appTest_qmllint: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/bin/qmllint.exe F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml F$:/Source/Qt/Test/qml/Attendance.qml F$:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml || all_qmltyperegistrations appTest_qmltyperegistration
+  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.qt\bin\qt_setup_tool_path.bat E:/Qt/6.5.3/mingw_64/bin/qmllint.exe --bare -I F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug -I E:/Qt/6.5.3/android_armv7/./qml --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmake_Test.qrc --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc F:/Source/Qt/Test/qml/LoginPage.qml F:/Source/Qt/Test/qml/Main.qml F:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F:/Source/Qt/Test/qml/Schedule.qml F:/Source/Qt/Test/qml/MyDir/Subject.qml F:/Source/Qt/Test/qml/Attendance.qml F:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml"
 
 
 #############################################
 # Custom command for CMakeFiles\appTest_qmllint_json
 
-build CMakeFiles/appTest_qmllint_json | ${cmake_ninja_workdir}CMakeFiles/appTest_qmllint_json: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/bin/qmllint.exe F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml || all_qmltyperegistrations appTest_qmltyperegistration
-  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.qt\bin\qt_setup_tool_path.bat E:/Qt/6.5.3/mingw_64/bin/qmllint.exe --bare -I F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug -I E:/Qt/6.5.3/android_armv7/./qml --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmake_Test.qrc --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc F:/Source/Qt/Test/qml/LoginPage.qml F:/Source/Qt/Test/qml/Main.qml F:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F:/Source/Qt/Test/qml/Schedule.qml F:/Source/Qt/Test/qml/MyDir/Subject.qml --json F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_qmllint.json"
+build CMakeFiles/appTest_qmllint_json | ${cmake_ninja_workdir}CMakeFiles/appTest_qmllint_json: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/bin/qmllint.exe F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml F$:/Source/Qt/Test/qml/Attendance.qml F$:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml || all_qmltyperegistrations appTest_qmltyperegistration
+  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.qt\bin\qt_setup_tool_path.bat E:/Qt/6.5.3/mingw_64/bin/qmllint.exe --bare -I F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug -I E:/Qt/6.5.3/android_armv7/./qml --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmake_Test.qrc --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc F:/Source/Qt/Test/qml/LoginPage.qml F:/Source/Qt/Test/qml/Main.qml F:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F:/Source/Qt/Test/qml/Schedule.qml F:/Source/Qt/Test/qml/MyDir/Subject.qml F:/Source/Qt/Test/qml/Attendance.qml F:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml --json F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_qmllint.json"
 
 
 #############################################
 # Custom command for CMakeFiles\appTest_qmllint_module
 
-build CMakeFiles/appTest_qmllint_module | ${cmake_ninja_workdir}CMakeFiles/appTest_qmllint_module: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/bin/qmllint.exe F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml || all_qmltyperegistrations appTest_qmltyperegistration
+build CMakeFiles/appTest_qmllint_module | ${cmake_ninja_workdir}CMakeFiles/appTest_qmllint_module: CUSTOM_COMMAND E$:/Qt/6.5.3/mingw_64/bin/qmllint.exe F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml F$:/Source/Qt/Test/qml/Attendance.qml F$:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml || all_qmltyperegistrations appTest_qmltyperegistration
   COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug\.qt\bin\qt_setup_tool_path.bat E:/Qt/6.5.3/mingw_64/bin/qmllint.exe -I F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug -I E:/Qt/6.5.3/android_armv7/./qml --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmake_Test.qrc --resource F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc --module Test"
 
 
@@ -549,6 +583,33 @@ build Test/qml/Schedule.qml | ${cmake_ninja_workdir}Test/qml/Schedule.qml: CUSTO
 build Test/qml/MyDir/Subject.qml | ${cmake_ninja_workdir}Test/qml/MyDir/Subject.qml: CUSTOM_COMMAND F$:/Source/Qt/Test/qml/MyDir/Subject.qml
   COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && E:\Qt\Tools\CMake_64\bin\cmake.exe -E copy F:/Source/Qt/Test/qml/MyDir/Subject.qml F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test/qml/MyDir/Subject.qml"
   DESC = Generating Test/qml/MyDir/Subject.qml
+  restat = 1
+
+
+#############################################
+# Custom command for Test\qml\Attendance.qml
+
+build Test/qml/Attendance.qml | ${cmake_ninja_workdir}Test/qml/Attendance.qml: CUSTOM_COMMAND F$:/Source/Qt/Test/qml/Attendance.qml
+  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && E:\Qt\Tools\CMake_64\bin\cmake.exe -E copy F:/Source/Qt/Test/qml/Attendance.qml F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test/qml/Attendance.qml"
+  DESC = Generating Test/qml/Attendance.qml
+  restat = 1
+
+
+#############################################
+# Custom command for Test\qml\MyDir\AttendanceLine.qml
+
+build Test/qml/MyDir/AttendanceLine.qml | ${cmake_ninja_workdir}Test/qml/MyDir/AttendanceLine.qml: CUSTOM_COMMAND F$:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml
+  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && E:\Qt\Tools\CMake_64\bin\cmake.exe -E copy F:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test/qml/MyDir/AttendanceLine.qml"
+  DESC = Generating Test/qml/MyDir/AttendanceLine.qml
+  restat = 1
+
+
+#############################################
+# Custom command for Test\qml\MyDir\qmldir
+
+build Test/qml/MyDir/qmldir | ${cmake_ninja_workdir}Test/qml/MyDir/qmldir: CUSTOM_COMMAND F$:/Source/Qt/Test/qml/MyDir/qmldir
+  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && E:\Qt\Tools\CMake_64\bin\cmake.exe -E copy F:/Source/Qt/Test/qml/MyDir/qmldir F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test/qml/MyDir/qmldir"
+  DESC = Generating Test/qml/MyDir/qmldir
   restat = 1
 
 

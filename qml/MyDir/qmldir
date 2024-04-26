@@ -1,0 +1,3 @@
+module ColorsNSizes
+
+singleton ColorsNSizes 1.0 ColorsNSizes.qml

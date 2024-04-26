@@ -7,4 +7,6 @@ ColorsNSizes 1.0 qml/MyDir/ColorsNSizes.qml
 MyDrawer 1.0 qml/MyDir/MyDrawer.qml
 Schedule 1.0 qml/Schedule.qml
 Subject 1.0 qml/MyDir/Subject.qml
+Attendance 1.0 qml/Attendance.qml
+AttendanceLine 1.0 qml/MyDir/AttendanceLine.qml
 
