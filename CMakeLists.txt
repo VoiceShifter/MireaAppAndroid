@@ -17,7 +17,7 @@ qt_add_qml_module(appTest
     VERSION 1.0
     SOURCES
         src/main.cpp
-
+        src/SocketCall.h src/SocketCall.cpp
 
     QML_FILES
         qml/LoginPage.qml
@@ -30,6 +30,7 @@ qt_add_qml_module(appTest
         qml/Attendance.qml
         qml/MyDir/AttendanceLine.qml
         qml/MyDir/qmldir
+
 
 
 

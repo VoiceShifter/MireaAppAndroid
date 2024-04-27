@@ -14,6 +14,53 @@ Drawer {
     //               }
 
     readonly property int _ButtonHeight : _YResolution / ColorsNSizes._SideButtonScaleY
+
+    Row
+    {
+        spacing: 10
+        height: _YResolution / ColorsNSizes._SliderScaleY
+        y: 10
+        width: parent.width
+        Switch
+        {
+            id: _Controll
+
+            checked: false
+
+            onToggled:
+            {
+                if (checked)
+                {
+                    ColorsNSizes._CurrentTheme = ColorsNSizes.themes._Light
+
+
+                }
+                else
+                {
+                    ColorsNSizes._CurrentTheme = ColorsNSizes.themes._Dark
+
+                }
+            }
+
+        }
+        Text{
+
+
+
+
+            text: ColorsNSizes._ThemeName
+            color: "black"
+            font.pointSize: 16
+            font.bold: true
+            anchors.verticalCenter: parent.verticalCenter
+
+
+        }
+    }
+
+
+
+
     Column
     {
         spacing: -1
@@ -28,7 +75,7 @@ Drawer {
             border.color: "black"
             border.width: 1
             height: _ButtonHeight
-            color: ColorsNSizes._CoolGray
+            color: ColorsNSizes._PrimaryGray
             Text {
                 id: _ToSchedule
                 text: qsTr("Schedule")
@@ -54,7 +101,7 @@ Drawer {
             border.color: "black"
             border.width: 1
             height: _ButtonHeight
-            color: ColorsNSizes._CoolGray
+            color: ColorsNSizes._PrimaryGray
             Text {
                 id: _ToTeachers
                 text: qsTr("Teachers")
@@ -81,7 +128,7 @@ Drawer {
             border.color: "black"
             border.width: 1
             height: _ButtonHeight
-            color: ColorsNSizes._CoolGray
+            color: ColorsNSizes._PrimaryGray
             Text {
                 id: _Attendance
                 text: qsTr("Attendance")

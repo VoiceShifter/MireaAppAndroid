@@ -26,7 +26,7 @@ Item
         anchors.fill: parent
 //        width: parent.width
 //        height: parent.height
-        color: "#7881AE"
+        color: ColorsNSizes._PrimaryBlue
 
     }
 
@@ -86,7 +86,7 @@ Item
                 anchors.fill: parent
                 onClicked:
                 {
-                       _Loader.source = "MainPage5.qml"
+                       //_Loader.source = "MainPage5.qml"
                        console.log("Clicked subject button")
                 }
 
@@ -102,7 +102,7 @@ Item
                 anchors.fill: parent
                 onClicked:
                 {
-                       _Loader.source = "MainPage5.qml"
+                       //_Loader.source = "MainPage5.qml"
                        console.log("Clicked Subject button")
                 }
 

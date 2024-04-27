@@ -1,2 +1,85 @@
 [
+    {
+        "classes": [
+            {
+                "className": "SocketCall",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "QString"
+                            },
+                            {
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "_Call",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "QString"
+                            }
+                        ],
+                        "isCloned": true,
+                        "name": "_Call",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "isCloned": true,
+                        "name": "_Call",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "_CheckForIp",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "Reply",
+                        "notify": "ReplyChanged",
+                        "read": "getReply",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setReply"
+                    }
+                ],
+                "qualifiedClassName": "SocketCall",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "ReplyChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "SocketCall.h",
+        "outputRevision": 68
+    }
 ]

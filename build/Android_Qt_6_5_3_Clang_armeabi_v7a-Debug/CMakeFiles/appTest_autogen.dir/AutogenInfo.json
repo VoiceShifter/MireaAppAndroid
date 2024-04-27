@@ -880,7 +880,15 @@
 	"CMAKE_SOURCE_DIR" : "F:/Source/Qt/Test",
 	"DEP_FILE" : "F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "appTest_autogen/timestamp",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"F:/Source/Qt/Test/src/SocketCall.h",
+			"MU",
+			"UVLADIE3JM/moc_SocketCall.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_autogen/include",
 	"MOC_COMPILATION_FILE" : "F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_autogen/mocs_compilation.cpp",
@@ -976,6 +984,7 @@
 			"MU",
 			null
 		],
+		[ "F:/Source/Qt/Test/src/SocketCall.cpp", "MU", null ],
 		[ "F:/Source/Qt/Test/src/main.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

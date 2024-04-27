@@ -3,7 +3,7 @@ import QtQuick
 Rectangle
 {
     id: _SubjectObj
-    color: "#DBE2EF"
+    color: ColorsNSizes._PrimaryPurple
 
     // ColorsNSizes
     // {

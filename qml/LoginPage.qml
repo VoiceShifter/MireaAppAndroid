@@ -2,7 +2,7 @@ import QtQuick
 import QtLocation 5.15
 import QtQuick.Controls
 import "MyDir"
-
+import com.SocketCall 1.0
 
 Item {
 
@@ -14,10 +14,58 @@ Item {
     //     id: ColorsNSizes
     // }
 
+
     Rectangle
     {
         width: parent.width
         height: parent.height
+        Popup
+        {
+            id: _Popup
+            width: parent.width / ColorsNSizes._SubjectScaleX
+            height: parent.height / ColorsNSizes._SubjectScaleY / 0.5
+            anchors.centerIn: parent
+
+            TextField
+            {
+                id: _Ip
+                width: parent.width - 20
+                anchors.centerIn: parent
+            }
+            Rectangle
+            {
+                id: _Login
+                anchors.top: _Ip.bottom
+
+                width: 80
+                height: 40
+                color: ColorsNSizes._PrimaryPurple
+                anchors.horizontalCenter: _Ip.horizontalCenter
+
+                Socket
+                {
+                    id: _Socket
+                }
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked:
+                    {
+
+                        _Socket._CheckForIp(_Ip.text)
+                        _Socket._Call(loginField.text, passwordField.text) === true ? _Loader.source = "Schedule.qml" : _Status.text = "Error"
+                        console.log("Log")
+                    }
+                }
+            }
+            Text {
+                id: _Status
+                text: qsTr("")
+                anchors.top: _Login.bottom
+                font.pointSize: 16
+                anchors.horizontalCenter: _Login.horizontalCenter
+            }
+        }
 
         color: "#7881AE"
         Text {
@@ -44,14 +92,7 @@ Item {
             y: parent.height / 2.5
             radius: 60
             //<------------------------------------- Main Login screen
-            Popup
-            {
-                id: _Popup
-                width: _XResolution / ColorsNSizes._SubjectScaleX
-                height: _YResolution / ColorsNSizes._SubjectScaleY / 0.5
-                anchors.centerIn: parent
 
-            }
 
             Rectangle //Icon holder
             {
@@ -146,8 +187,8 @@ Item {
                     anchors.fill: parent
                     onClicked:
                     {
-
-                        _Loader.source = "Schedule.qml"
+                        _Popup.open()
+                        //_Loader.source = "Schedule.qml"
 
                     }
 

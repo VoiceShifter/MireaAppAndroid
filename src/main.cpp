@@ -1,22 +1,25 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 # include <QtNetwork>
+# include "SocketCall.h"
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
 
-    QNetworkAccessManager *manager = new QNetworkAccessManager();
-    QNetworkRequest request;
-    request.setUrl(QUrl("https://mirea.xyz/api/v1.3/groups/all"));
+    // QNetworkAccessManager *manager = new QNetworkAccessManager();
+    // QNetworkRequest request;
+    // request.setUrl(QUrl("https://mirea.xyz/api/v1.3/groups/all"));
 
-    QNetworkReply *reply = manager->get(request);
-    QEventLoop loop;
-    QAbstractSocket::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
-    qDebug() << reply->readAll();
+    // QNetworkReply *reply = manager->get(request);
+    // QEventLoop loop;
+    // QAbstractSocket::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    // loop.exec();
+    // qDebug() << reply->readAll();
+    qmlRegisterType<SocketCall>("com.SocketCall", 1, 0, "Socket");
 
     QQmlApplicationEngine engine;
+
     const QUrl url(QStringLiteral("qrc:/Test/qml/Main.qml"));
     QObject::connect(
         &engine,
@@ -25,6 +28,7 @@ int main(int argc, char *argv[])
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
     engine.load(url);
+
 
     return app.exec();
 }
