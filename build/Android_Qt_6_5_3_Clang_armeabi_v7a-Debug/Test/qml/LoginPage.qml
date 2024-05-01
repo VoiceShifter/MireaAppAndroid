@@ -9,12 +9,6 @@ Item {
     property int _XResolution: parent.width
     property int _YResolution: parent.height
 
-    // ColorsNSizes
-    // {
-    //     id: ColorsNSizes
-    // }
-
-
     Rectangle
     {
         width: parent.width
@@ -133,14 +127,16 @@ Item {
 
                 id: loginField
                 placeholderText: "Login"
+                placeholderTextColor: "red"
                 anchors.top: login_text.bottom
                 anchors.topMargin: 20
                 anchors.horizontalCenter: parent.horizontalCenter
+
                 background: Rectangle
                 {
                     radius: 60
                     implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
-                    implicitHeight: 40
+                    implicitHeight: 20
                     color: control.enabled ? "transparent" : "#7881ae"
                     border.color: control.enabled ? "#dbe2ef" : "transparent"
                 }
@@ -151,6 +147,8 @@ Item {
             {
                 id: passwordField
                 placeholderText: "Password"
+                placeholderTextColor: "red"
+
                 echoMode: TextInput.Password
                 anchors.top: loginField.bottom
                 anchors.topMargin: 20
@@ -159,7 +157,7 @@ Item {
                 {
                     radius: 60
                     implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
-                    implicitHeight: 40
+                    implicitHeight: 20
                     color: control.enabled ? "transparent" : "#7881ae"
                     border.color: control.enabled ? "#dbe2ef" : "transparent"
                 }

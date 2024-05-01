@@ -44,4 +44,10 @@ Item {
 
     readonly property double _SliderScaleX : 4
     readonly property double _SliderScaleY : 20
+
+    readonly property double _BreakerScaleY : 8
+
+
+
+
 }

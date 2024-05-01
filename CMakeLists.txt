@@ -18,6 +18,7 @@ qt_add_qml_module(appTest
     SOURCES
         src/main.cpp
         src/SocketCall.h src/SocketCall.cpp
+        src/Searcher.h src/Searcher.cpp
 
     QML_FILES
         qml/LoginPage.qml
@@ -30,6 +31,10 @@ qt_add_qml_module(appTest
         qml/Attendance.qml
         qml/MyDir/AttendanceLine.qml
         qml/MyDir/qmldir
+        qml/Teachers.qml
+
+    RESOURCES
+    src/data/Teachers.txt
 
 
 

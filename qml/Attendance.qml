@@ -36,13 +36,25 @@ Item {
         font.bold: false
     }
 
+    Text {
+        id: _Name
+        text: "Посещаемость"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: _Breaker.top
+        anchors.bottomMargin: 10
+        color: "white"
+
+        font.bold: true
+        font.pointSize: 28
+    }
+
     Rectangle //breaker
     {
         id: _Breaker
         color: "white"
         width: parent.width - 60
         height: 5
-        anchors.top: _StudentName.bottom
+        y: _YResolution / ColorsNSizes._BreakerScaleY
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 20
     }

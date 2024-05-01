@@ -2,6 +2,8 @@ appTest_autogen/timestamp: \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QByteArray \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QCryptographicHash \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QDeadlineTimer \
+  E:/Qt/6.5.3/android_armv7/include/QtCore/QDebug \
+  E:/Qt/6.5.3/android_armv7/include/QtCore/QFile \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QFlags \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QHash \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QIODevice \
@@ -987,6 +989,7 @@ appTest_autogen/timestamp: \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__debug \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__errc \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__functional_base \
+  F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__hash_table \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__locale \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__mutex_base \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__node_handle \
@@ -1020,6 +1023,7 @@ appTest_autogen/timestamp: \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/exception \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/filesystem \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/float.h \
+  F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/fstream \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/functional \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/future \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/initializer_list \
@@ -1053,6 +1057,7 @@ appTest_autogen/timestamp: \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/tuple \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/type_traits \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/typeinfo \
+  F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/unordered_set \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/utility \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/variant \
   F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/vector \
@@ -1102,6 +1107,8 @@ appTest_autogen/timestamp: \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeSystem.cmake \
   appTest_autogen/moc_predefs.h \
+  F:/Source/Qt/Test/src/Searcher.cpp \
+  F:/Source/Qt/Test/src/Searcher.h \
   F:/Source/Qt/Test/src/SocketCall.cpp \
   F:/Source/Qt/Test/src/SocketCall.h \
   F:/Source/Qt/Test/src/main.cpp

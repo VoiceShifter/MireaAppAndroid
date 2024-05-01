@@ -883,6 +883,12 @@
 	"HEADERS" : 
 	[
 		[
+			"F:/Source/Qt/Test/src/Searcher.h",
+			"MU",
+			"UVLADIE3JM/moc_Searcher.cpp",
+			null
+		],
+		[
 			"F:/Source/Qt/Test/src/SocketCall.h",
 			"MU",
 			"UVLADIE3JM/moc_SocketCall.cpp",
@@ -965,6 +971,7 @@
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/MyDrawer_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Schedule_qml.cpp",
+		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Teachers_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_appTest_raw_qml_0.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_qmake_Test.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/apptest_qmltyperegistrations.cpp"
@@ -984,6 +991,7 @@
 			"MU",
 			null
 		],
+		[ "F:/Source/Qt/Test/src/Searcher.cpp", "MU", null ],
 		[ "F:/Source/Qt/Test/src/SocketCall.cpp", "MU", null ],
 		[ "F:/Source/Qt/Test/src/main.cpp", "MU", null ]
 	],
@@ -999,6 +1007,7 @@
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/MyDrawer_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/MyDir/Subject_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Schedule_qml.cpp",
+		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qmlcache/appTest_qml/Teachers_qml.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_appTest_raw_qml_0.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_qmake_Test.cpp",
 		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/apptest_qmltyperegistrations.cpp"

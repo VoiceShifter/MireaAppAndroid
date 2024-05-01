@@ -9,4 +9,5 @@ Schedule 1.0 qml/Schedule.qml
 Subject 1.0 qml/MyDir/Subject.qml
 Attendance 1.0 qml/Attendance.qml
 AttendanceLine 1.0 qml/MyDir/AttendanceLine.qml
+Teachers 1.0 qml/Teachers.qml
 

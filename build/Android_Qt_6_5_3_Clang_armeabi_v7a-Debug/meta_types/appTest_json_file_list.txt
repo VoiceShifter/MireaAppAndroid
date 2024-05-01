@@ -1,1 +1,2 @@
+F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_autogen/include/../UVLADIE3JM/moc_Searcher.cpp.json
 F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/appTest_autogen/include/../UVLADIE3JM/moc_SocketCall.cpp.json

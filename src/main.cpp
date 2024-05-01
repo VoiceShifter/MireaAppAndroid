@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 # include <QtNetwork>
 # include "SocketCall.h"
+# include "Searcher.h"
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
     // loop.exec();
     // qDebug() << reply->readAll();
     qmlRegisterType<SocketCall>("com.SocketCall", 1, 0, "Socket");
+    qmlRegisterType<Searcher>("com.Searcher", 1, 0, "Searcher");
 
     QQmlApplicationEngine engine;
 

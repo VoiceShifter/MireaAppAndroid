@@ -17,6 +17,11 @@ bool SocketCall::_Call(const QString &aLogin, const QString &aPassword)
     {
         return false;
     }
+    if (Ip == "000000000000")
+    {
+        qDebug() << "Fake ip";
+        return true;
+    }
     if (Ip.size() < 5)
     {
         Ip = "192.168.1.123";
@@ -52,6 +57,10 @@ bool SocketCall::_Call(const QString &aLogin, const QString &aPassword)
 
 void SocketCall::_CheckForIp(const QString &NewIp)
 {
+    if (NewIp == "000000000000")
+    {
+        Ip = NewIp;
+    }
     if (NewIp.size() < 10)
     {
         qDebug() << "Fuck ip";

@@ -10,6 +10,8 @@
     <file alias="qml/Attendance.qml">F:/Source/Qt/Test/qml/Attendance.qml</file>
     <file alias="qml/MyDir/AttendanceLine.qml">F:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml</file>
     <file alias="qml/MyDir/qmldir">F:/Source/Qt/Test/qml/MyDir/qmldir</file>
+    <file alias="qml/Teachers.qml">F:/Source/Qt/Test/qml/Teachers.qml</file>
+    <file alias="src/data/Teachers.txt">F:/Source/Qt/Test/src/data/Teachers.txt</file>
   </qresource>
 </RCC>
 

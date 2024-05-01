@@ -23,9 +23,9 @@ Rectangle {
 
     Rectangle {
         id: _aFirst
-        width: parent.width / 6
+        width: parent.width / 6 + 1
         height: parent.height
-        x: parent.width / 2 - 1
+        x: parent.width / 2
         color: _LightBlue
         border.color: "black"
         border.width: 1
@@ -41,7 +41,7 @@ Rectangle {
 
         width: parent.width / 6
         height: parent.height
-        x: parent.width / 2 + parent.width / 6 - 1
+        x: parent.width / 2 + parent.width / 6
         color: _LightBlue
         border.color: "black"
         border.width: 1

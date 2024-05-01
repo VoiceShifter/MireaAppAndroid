@@ -35,14 +35,14 @@ Item
         id: _Name
         text: "<-- Понедельник -->"
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: _StudentName.bottom
-        anchors.topMargin: 20
+        anchors.bottom: _Breaker.top
+        anchors.bottomMargin: 10
         color: "white"
 
         font.bold: true
         font.pointSize: 28
-
     }
+
     Text {
         id: _StudentName
         text: qsTr("username")
@@ -59,7 +59,7 @@ Item
         color: "white"
         width: parent.width - 60
         height: 5
-        anchors.top: _Name.bottom
+        y: _YResolution / ColorsNSizes._BreakerScaleY
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 20
     }

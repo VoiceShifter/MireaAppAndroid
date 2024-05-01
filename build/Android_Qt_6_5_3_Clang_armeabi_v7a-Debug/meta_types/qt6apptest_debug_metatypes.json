@@ -2,6 +2,83 @@
     {
         "classes": [
             {
+                "className": "Searcher",
+                "methods": [
+                    {
+                        "access": "public",
+                        "name": "_PrintItems",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "Input",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "_Search",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "_Items",
+                        "notify": "listPopulated",
+                        "read": "_GetItems",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "_PopulateItems"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "Cache",
+                        "read": "Cache",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "Searcher",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "listPopulated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "constructed",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "Searcher.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "SocketCall",
                 "methods": [
                     {
