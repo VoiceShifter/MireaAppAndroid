@@ -38,8 +38,11 @@ void Searcher::_PrintItems()
 
 Searcher::Searcher(QObject *parent) : QObject(parent)
 {
-    TeachersList.open("data/Teachers.txt", std::ios::in); //в будущем надо будет сделать qml/data/Teachers.txt
-    CacheFile.open("data/Cache.txt", std::ios::in);
+
+    QString CacheFilePath = QDir(":/data").filePath("Cache.txt");
+    QString DataFilePath = QDir(":/data").filePath("Teachers.txt");
+    TeachersList.open(DataFilePath.toStdString(), std::ios::in); //в будущем надо будет сделать qml/data/Teachers.txt
+    CacheFile.open(CacheFilePath.toStdString(), std::ios::in);
     std::string Buffer{};
 
 
@@ -70,8 +73,9 @@ void Searcher::_Search(QString aInput)
 {
 
 
-
-    CacheFile.open("data/Cache.txt", std::ios::out);
+    QString CacheFilePath = QDir(":/data").filePath("Cache.txt");
+    QString DataFilePath = QDir(":/data").filePath("Teachers.txt");
+    CacheFile.open(CacheFilePath.toStdString(), std::ios::out);
     Results.clear();
     CacheFile << aInput.toStdString();
 
@@ -99,8 +103,8 @@ void Searcher::_Search(QString aInput)
         qDebug() << Iterator.c_str();
     }
     //TeachersList.seekg(0);
-    TeachersList.close();
-    TeachersList.open("data/Teachers.txt", std::ios::in); //в будущем надо будет сделать qml/data/Teachers.txt
+    TeachersList.close(); //перенос коретки в начало
+    TeachersList.open(DataFilePath.toStdString(), std::ios::in); // //в будущем надо будет сделать qml/data/Teachers.txt
     _Items.clear();
 
 }

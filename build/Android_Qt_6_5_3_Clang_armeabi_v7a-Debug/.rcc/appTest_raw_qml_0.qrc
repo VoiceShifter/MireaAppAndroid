@@ -12,6 +12,7 @@
     <file alias="qml/MyDir/qmldir">F:/Source/Qt/Test/qml/MyDir/qmldir</file>
     <file alias="qml/Teachers.qml">F:/Source/Qt/Test/qml/Teachers.qml</file>
     <file alias="src/data/Teachers.txt">F:/Source/Qt/Test/src/data/Teachers.txt</file>
+    <file alias="src/data/Cache.txt">F:/Source/Qt/Test/src/data/Cache.txt</file>
   </qresource>
 </RCC>
 

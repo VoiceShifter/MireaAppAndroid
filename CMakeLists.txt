@@ -35,6 +35,8 @@ qt_add_qml_module(appTest
 
     RESOURCES
     src/data/Teachers.txt
+    src/data/Cache.txt
+
 
 
 
@@ -63,3 +65,5 @@ install(TARGETS appTest
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+# Copy data files to the asset folder
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/src/data DESTINATION ${CMAKE_BINARY_DIR}/android/assets)

@@ -267,7 +267,7 @@ build all_qmllint_module: phony appTest_qmllint_module
 #############################################
 # Utility command for appTest_tooling
 
-build appTest_tooling: phony Test/qml/LoginPage.qml Test/qml/Main.qml Test/qml/MyDir/ColorsNSizes.qml Test/qml/MyDir/Icons/home.svg Test/qml/MyDir/MyDrawer.qml Test/qml/Schedule.qml Test/qml/MyDir/Subject.qml Test/qml/Attendance.qml Test/qml/MyDir/AttendanceLine.qml Test/qml/MyDir/qmldir Test/qml/Teachers.qml Test/src/data/Teachers.txt
+build appTest_tooling: phony Test/qml/LoginPage.qml Test/qml/Main.qml Test/qml/MyDir/ColorsNSizes.qml Test/qml/MyDir/Icons/home.svg Test/qml/MyDir/MyDrawer.qml Test/qml/Schedule.qml Test/qml/MyDir/Subject.qml Test/qml/Attendance.qml Test/qml/MyDir/AttendanceLine.qml Test/qml/MyDir/qmldir Test/qml/Teachers.qml Test/src/data/Teachers.txt Test/src/data/Cache.txt
 
 
 #############################################
@@ -504,7 +504,7 @@ build .rcc/qmlcache/appTest_qml/Teachers_qml.cpp | ${cmake_ninja_workdir}.rcc/qm
 #############################################
 # Custom command for .rcc\qrc_appTest_raw_qml_0.cpp
 
-build .rcc/qrc_appTest_raw_qml_0.cpp | ${cmake_ninja_workdir}.rcc/qrc_appTest_raw_qml_0.cpp: CUSTOM_COMMAND F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/Icons/home.svg F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml F$:/Source/Qt/Test/qml/Attendance.qml F$:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml F$:/Source/Qt/Test/qml/MyDir/qmldir F$:/Source/Qt/Test/qml/Teachers.qml F$:/Source/Qt/Test/src/data/Teachers.txt .rcc/appTest_raw_qml_0.qrc E$:/Qt/6.5.3/mingw_64/./bin/rcc.exe || appTest_autogen appTest_autogen_timestamp_deps appTest_tooling
+build .rcc/qrc_appTest_raw_qml_0.cpp | ${cmake_ninja_workdir}.rcc/qrc_appTest_raw_qml_0.cpp: CUSTOM_COMMAND F$:/Source/Qt/Test/qml/LoginPage.qml F$:/Source/Qt/Test/qml/Main.qml F$:/Source/Qt/Test/qml/MyDir/ColorsNSizes.qml F$:/Source/Qt/Test/qml/MyDir/Icons/home.svg F$:/Source/Qt/Test/qml/MyDir/MyDrawer.qml F$:/Source/Qt/Test/qml/Schedule.qml F$:/Source/Qt/Test/qml/MyDir/Subject.qml F$:/Source/Qt/Test/qml/Attendance.qml F$:/Source/Qt/Test/qml/MyDir/AttendanceLine.qml F$:/Source/Qt/Test/qml/MyDir/qmldir F$:/Source/Qt/Test/qml/Teachers.qml F$:/Source/Qt/Test/src/data/Teachers.txt F$:/Source/Qt/Test/src/data/Cache.txt .rcc/appTest_raw_qml_0.qrc E$:/Qt/6.5.3/mingw_64/./bin/rcc.exe || appTest_autogen appTest_autogen_timestamp_deps appTest_tooling
   COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test\build\Android_Qt_6_5_3_Clang_armeabi_v7a-Debug && E:\Qt\6.5.3\mingw_64\.\bin\rcc.exe --output F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/qrc_appTest_raw_qml_0.cpp --name appTest_raw_qml_0 F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/.rcc/appTest_raw_qml_0.qrc --no-zstd"
   DESC = Running rcc for resource appTest_raw_qml_0
   restat = 1
@@ -661,6 +661,15 @@ build Test/qml/Teachers.qml | ${cmake_ninja_workdir}Test/qml/Teachers.qml: CUSTO
 build Test/src/data/Teachers.txt | ${cmake_ninja_workdir}Test/src/data/Teachers.txt: CUSTOM_COMMAND F$:/Source/Qt/Test/src/data/Teachers.txt
   COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && E:\Qt\Tools\CMake_64\bin\cmake.exe -E copy F:/Source/Qt/Test/src/data/Teachers.txt F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test/src/data/Teachers.txt"
   DESC = Generating Test/src/data/Teachers.txt
+  restat = 1
+
+
+#############################################
+# Custom command for Test\src\data\Cache.txt
+
+build Test/src/data/Cache.txt | ${cmake_ninja_workdir}Test/src/data/Cache.txt: CUSTOM_COMMAND F$:/Source/Qt/Test/src/data/Cache.txt
+  COMMAND = cmd.exe /C "cd /D F:\Source\Qt\Test && E:\Qt\Tools\CMake_64\bin\cmake.exe -E copy F:/Source/Qt/Test/src/data/Cache.txt F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test/src/data/Cache.txt"
+  DESC = Generating Test/src/data/Cache.txt
   restat = 1
 
 

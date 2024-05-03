@@ -3,6 +3,7 @@ appTest_autogen/timestamp: \
 	E:/Qt/6.5.3/android_armv7/include/QtCore/QCryptographicHash \
 	E:/Qt/6.5.3/android_armv7/include/QtCore/QDeadlineTimer \
 	E:/Qt/6.5.3/android_armv7/include/QtCore/QDebug \
+	E:/Qt/6.5.3/android_armv7/include/QtCore/QDir \
 	E:/Qt/6.5.3/android_armv7/include/QtCore/QFile \
 	E:/Qt/6.5.3/android_armv7/include/QtCore/QFlags \
 	E:/Qt/6.5.3/android_armv7/include/QtCore/QHash \
@@ -1029,6 +1030,7 @@ appTest_autogen/timestamp: \
 	F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/iomanip \
 	F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/ios \
 	F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/iosfwd \
+	F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/iostream \
 	F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/istream \
 	F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/iterator \
 	F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/limits \

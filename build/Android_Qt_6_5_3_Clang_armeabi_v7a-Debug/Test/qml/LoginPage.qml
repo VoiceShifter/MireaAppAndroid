@@ -185,8 +185,8 @@ Item {
                     anchors.fill: parent
                     onClicked:
                     {
-                        _Popup.open()
-                        //_Loader.source = "Schedule.qml"
+                        //_Popup.open()
+                        _Loader.source = "Schedule.qml"
 
                     }
 

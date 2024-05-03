@@ -4,11 +4,15 @@
 # include <QDebug>
 # include <QString>
 # include <QFile>
+# include <QStringList>
 
 # include <fstream>
 # include <string>
 # include <unordered_set>
-# include <QStringList>
+
+# include <filesystem>
+# include <iostream>
+# include <QDir>
 
 class Searcher : public QObject
 {
