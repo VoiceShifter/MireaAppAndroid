@@ -301,6 +301,26 @@ EGL_INCLUDE_DIR:PATH=F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/pre
 //Path to a library.
 EGL_LIBRARY:FILEPATH=F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/23/libEGL.so
 
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for android_openssl
+FETCHCONTENT_SOURCE_DIR_ANDROID_OPENSSL:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of android_openssl
+FETCHCONTENT_UPDATES_DISCONNECTED_ANDROID_OPENSSL:BOOL=OFF
+
 //The OpenGLES 2 include path
 GLESv2_INCLUDE_DIR:PATH=F:/Drivers/android_sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include
 
@@ -524,7 +544,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

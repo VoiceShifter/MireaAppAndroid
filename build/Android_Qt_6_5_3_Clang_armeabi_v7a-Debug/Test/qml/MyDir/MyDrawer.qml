@@ -5,13 +5,7 @@ Drawer {
     id: _Drawer
     width: _XResolution * 0.66
     height: _YResolution
-    // ColorsNSizes
-    // {
-    //     id: ColorsNSizes
-    // }
-    // Overlay.modal: Rectangle {
-    //                   color: "transparent"
-    //               }
+
 
     readonly property int _ButtonHeight : _YResolution / ColorsNSizes._SideButtonScaleY
 
@@ -43,18 +37,13 @@ Drawer {
             }
 
         }
-        Text{
-
-
-
-
+        Text
+        {
             text: ColorsNSizes._ThemeName
             color: "black"
             font.pointSize: 16
             font.bold: true
             anchors.verticalCenter: parent.verticalCenter
-
-
         }
     }
 
@@ -78,7 +67,7 @@ Drawer {
             color: ColorsNSizes._PrimaryGray
             Text {
                 id: _ToSchedule
-                text: qsTr("Schedule")
+                text: qsTr("Расписание")
                 font.pointSize: ColorsNSizes._MediumFont
                 color: "black"
                 anchors.centerIn: parent
@@ -104,7 +93,7 @@ Drawer {
             color: ColorsNSizes._PrimaryGray
             Text {
                 id: _ToTeachers
-                text: qsTr("Teachers")
+                text: qsTr("Преподователи")
                 font.pointSize: ColorsNSizes._MediumFont
                 color: "black"
                 anchors.centerIn: parent
@@ -131,7 +120,7 @@ Drawer {
             color: ColorsNSizes._PrimaryGray
             Text {
                 id: _Attendance
-                text: qsTr("Attendance")
+                text: qsTr("Посещаемость")
                 font.pointSize: ColorsNSizes._MediumFont
                 color: "black"
                 anchors.centerIn: parent
@@ -149,6 +138,7 @@ Drawer {
             }
 
         }
+
 
 }
 

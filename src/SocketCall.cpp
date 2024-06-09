@@ -63,7 +63,7 @@ void SocketCall::_CheckForIp(const QString &NewIp)
     }
     if (NewIp.size() < 10)
     {
-        qDebug() << "Fuck ip";
+        qDebug() << "No ip";
         return;
     }
     else

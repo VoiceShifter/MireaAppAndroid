@@ -1,6 +1,7 @@
 appTest_autogen/timestamp: \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QByteArray \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QCryptographicHash \
+  E:/Qt/6.5.3/android_armv7/include/QtCore/QDateTime \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QDeadlineTimer \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QDebug \
   E:/Qt/6.5.3/android_armv7/include/QtCore/QDir \
@@ -922,6 +923,8 @@ appTest_autogen/timestamp: \
   E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/ExternalProject.cmake \
   E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/ExternalProject/shared_internal_commands.cmake \
   E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/FeatureSummary.cmake \
+  E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/FetchContent.cmake \
+  E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/FetchContent/CMakeLists.cmake.in \
   E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake \
   E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/FindPackageMessage.cmake \
   E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/FindPkgConfig.cmake \
@@ -1108,7 +1111,10 @@ appTest_autogen/timestamp: \
   .rcc/qmlcache/appTest_qmlcache_loader.cpp \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeSystem.cmake \
+  _deps/android_openssl-src/android_openssl.cmake \
   appTest_autogen/moc_predefs.h \
+  F:/Source/Qt/Test/src/JsonParser.cpp \
+  F:/Source/Qt/Test/src/JsonParser.h \
   F:/Source/Qt/Test/src/Searcher.cpp \
   F:/Source/Qt/Test/src/Searcher.h \
   F:/Source/Qt/Test/src/SocketCall.cpp \

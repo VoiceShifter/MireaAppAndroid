@@ -19,6 +19,7 @@ qt_add_qml_module(appTest
         src/main.cpp
         src/SocketCall.h src/SocketCall.cpp
         src/Searcher.h src/Searcher.cpp
+        src/JsonParser.h src/JsonParser.cpp
 
     QML_FILES
         qml/LoginPage.qml
@@ -42,22 +43,41 @@ qt_add_qml_module(appTest
 
 
 
+
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
+#QT_ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android
 set_target_properties(appTest PROPERTIES
 #    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appTest
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
-)
 
+
+)
 target_link_libraries(appTest
     PRIVATE Qt6::Quick
 )
+
+if (ANDROID)
+    include(FetchContent)
+    FetchContent_Declare(
+        android_openssl
+        DOWNLOAD_EXTRACT_TIMESTAMP true
+        URL https://github.com/KDAB/android_openssl/archive/refs/heads/master.zip
+    )
+
+    FetchContent_MakeAvailable(android_openssl)
+    include(${android_openssl_SOURCE_DIR}/android_openssl.cmake)
+endif()
+if (ANDROID)
+
+    add_android_openssl_libraries(appTest)
+endif()
 
 include(GNUInstallDirs)
 install(TARGETS appTest

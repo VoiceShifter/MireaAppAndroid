@@ -19,7 +19,7 @@
       "armeabi-v7a": "./qml"
    },
    "sdk": "F:/Drivers/android_sdk",
-   "sdkBuildToolsRevision": "33.0.0",
+   "sdkBuildToolsRevision": "31.0.0",
    "ndk": "F:/Drivers/android_sdk/ndk/25.1.8937393",
    "toolchain-prefix": "llvm",
    "tool-prefix": "llvm",
@@ -27,6 +27,7 @@
    "toolchain-version": "clang",
    "ndk-host": "windows-x86_64",
    "architectures": { "armeabi-v7a":"arm-linux-androideabi" },
+   "android-extra-libs" : "F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-src/no-asm/ssl_3/armeabi-v7a/libcrypto_3.so,F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-src/no-asm/ssl_3/armeabi-v7a/libssl_3.so",
    "application-binary": "appTest",
    "qml-import-paths" : "F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/Test,F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug",
    "qml-root-path" : [ "F:/Source/Qt/Test/qml","F:/Source/Qt/Test/qml/MyDir","F:/Source/Qt/Test" ],

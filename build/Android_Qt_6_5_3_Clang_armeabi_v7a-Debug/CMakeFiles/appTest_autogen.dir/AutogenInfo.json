@@ -867,6 +867,10 @@
 		"E:/Qt/6.5.3/android_armv7/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in",
 		"E:/Qt/6.5.3/android_armv7/lib/cmake/Qt6Qml/Qt6QmlModuleDirMappingTemplate.qrc.in",
 		"E:/Qt/6.5.3/android_armv7/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in",
+		"E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/FetchContent.cmake",
+		"E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/ExternalProject/shared_internal_commands.cmake",
+		"E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/FetchContent/CMakeLists.cmake.in",
+		"F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-src/android_openssl.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/GNUInstallDirs.cmake",
 		"E:/Qt/6.5.3/android_armv7/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.27/Modules/ExternalProject.cmake",
@@ -882,6 +886,12 @@
 	"DEP_FILE_RULE_NAME" : "appTest_autogen/timestamp",
 	"HEADERS" : 
 	[
+		[
+			"F:/Source/Qt/Test/src/JsonParser.h",
+			"MU",
+			"UVLADIE3JM/moc_JsonParser.cpp",
+			null
+		],
 		[
 			"F:/Source/Qt/Test/src/Searcher.h",
 			"MU",
@@ -991,6 +1001,7 @@
 			"MU",
 			null
 		],
+		[ "F:/Source/Qt/Test/src/JsonParser.cpp", "MU", null ],
 		[ "F:/Source/Qt/Test/src/Searcher.cpp", "MU", null ],
 		[ "F:/Source/Qt/Test/src/SocketCall.cpp", "MU", null ],
 		[ "F:/Source/Qt/Test/src/main.cpp", "MU", null ]
