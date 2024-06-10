@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Controls
+import com.JsonParser 1.0
+
 ApplicationWindow {
 
     visible: true
@@ -14,7 +16,15 @@ ApplicationWindow {
         anchors.fill: parent
         source:"LoginPage.qml"
     }
+    JsonParser
+    {
+        id: _Parser
+        Component.onCompleted:
+        {
 
+
+        }
+    }
 
 
 }

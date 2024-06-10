@@ -2,6 +2,394 @@
     {
         "classes": [
             {
+                "className": "JsonParser",
+                "methods": [
+                    {
+                        "access": "public",
+                        "name": "_GetReply",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_ReadJson",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "pDay",
+                                "type": "int"
+                            }
+                        ],
+                        "name": "_ReadValue",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "isCloned": true,
+                        "name": "_ReadValue",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_IncrementDay",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_DecrementDay",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_FillCurrentDayS",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_PrintAmount",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_UpdateTime",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_ChangeCurentSubject",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_StartCycle",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "QString"
+                            },
+                            {
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "_IterateCycle",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_SaveResults",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_GetAmountStudents",
+                        "returnType": "int"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "_SetGroup",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "_GetWeekReply",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "fJson",
+                        "notify": "fJsonChanged",
+                        "read": "getFJson",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QJsonArray",
+                        "user": false,
+                        "write": "setFJson"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "name": "CurrentDayItems",
+                        "notify": "CurrentDayItemsChanged",
+                        "read": "getCurrentDayItems",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setCurrentDayItems"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "name": "CurrentDayInt",
+                        "notify": "CurrentDayIntChanged",
+                        "read": "getCurrentDayInt",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setCurrentDayInt"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "name": "CurrentDayCabs",
+                        "notify": "CurrentDayCabsChanged",
+                        "read": "getCurrentDayCabs",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setCurrentDayCabs"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "name": "_TeacherName",
+                        "notify": "TeacherNameChanged",
+                        "read": "getTeacherName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setTeacherName"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "name": "_ItemName",
+                        "notify": "ItemNameChanged",
+                        "read": "getItemName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setItemName"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "name": "_Place",
+                        "notify": "PlaceChanged",
+                        "read": "getPlace",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setPlace"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 7,
+                        "name": "_Type",
+                        "notify": "TypeChanged",
+                        "read": "getType",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setType"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 8,
+                        "name": "_Students",
+                        "notify": "StudentsChanged",
+                        "read": "getStudents",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setStudents"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 9,
+                        "name": "Week",
+                        "notify": "WeekChanged",
+                        "read": "getWeek",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "write": "setWeek"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 10,
+                        "name": "_Times",
+                        "notify": "TimesChanged",
+                        "read": "getTimes",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "write": "setTimes"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 11,
+                        "name": "_CurrentSubject",
+                        "notify": "CurrentSubjectChanged",
+                        "read": "getCurrentSubject",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setCurrentSubject"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 12,
+                        "name": "_CurrentDayString",
+                        "notify": "CurrentDayStringChanged",
+                        "read": "getCurrentDayString",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setCurrentDayString"
+                    }
+                ],
+                "qualifiedClassName": "JsonParser",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "fJsonChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "CurrentDayItemsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "CurrentDayIntChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "CurrentDayCabsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "SubjectChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "TeacherNameChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ItemNameChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "PlaceChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "TypeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "WeekChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "StudentsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "TimesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "CurrentSubjectChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "CurrentDayStringChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "JsonParser.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "Searcher",
                 "methods": [
                     {

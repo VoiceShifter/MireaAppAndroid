@@ -3,6 +3,7 @@
 # include <QtNetwork>
 # include "SocketCall.h"
 # include "Searcher.h"
+# include "JsonParser.h"
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
@@ -19,6 +20,7 @@ int main(int argc, char *argv[])
     // qDebug() << reply->readAll();
     qmlRegisterType<SocketCall>("com.SocketCall", 1, 0, "Socket");
     qmlRegisterType<Searcher>("com.Searcher", 1, 0, "Searcher");
+    qmlRegisterType<JsonParser>("com.JsonParser", 1, 0, "JsonParser");
 
     QQmlApplicationEngine engine;
 
@@ -30,7 +32,6 @@ int main(int argc, char *argv[])
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
     engine.load(url);
-
 
     return app.exec();
 }

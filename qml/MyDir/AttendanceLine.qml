@@ -1,8 +1,8 @@
 import QtQuick
 Rectangle {
 
-    property color _LightBlue: "#DBE2EF"
-    property color _LightPurple: "#7881AE"
+    property color _LightBlue: ColorsNSizes._PrimaryPurple
+    property color _LightPurple: ColorsNSizes._PrimaryBlue
     width: parent.width
     height: 60
     color: _LightBlue
@@ -29,6 +29,17 @@ Rectangle {
         color: _LightBlue
         border.color: "black"
         border.width: 1
+        MouseArea
+        {
+            anchors.fill: parent
+            onClicked:
+            {
+                console.log("First clicked")
+                _First = "+"
+                _Second = ""
+                _Third = ""
+            }
+        }
         Text {
 
             text: qsTr(_First)
@@ -38,13 +49,25 @@ Rectangle {
     }
 
     Rectangle {
-
+        id: _aSecond
         width: parent.width / 6
         height: parent.height
         x: parent.width / 2 + parent.width / 6
         color: _LightBlue
         border.color: "black"
         border.width: 1
+
+        MouseArea
+        {
+            anchors.fill: parent
+            onClicked:
+            {
+                console.log("Second clicked")
+                _Second = "-"
+                _First = ""
+                _Third = ""
+            }
+        }
         Text {
 
             text: qsTr(_Second)
@@ -56,13 +79,27 @@ Rectangle {
 
 
     Rectangle {
-
+        id: _aThird
         width: parent.width / 6
         height: parent.height
         x: parent.width / 2 + 2 * parent.width / 6 - 1
         color: _LightBlue
         border.color: "black"
         border.width: 1
+
+        MouseArea
+        {
+            anchors.fill: parent
+            onClicked:
+            {
+                console.log("Third clicked")
+                _Third = "?"
+                _First = ""
+                _Second = ""
+
+
+            }
+        }
         Text {
 
             text: qsTr(_Third)

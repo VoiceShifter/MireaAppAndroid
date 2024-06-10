@@ -7,7 +7,7 @@ Item {
     QtObject{
         id: _Themes
         readonly property var _Dark: ["Dark" , "#dbe2ef", "#7881ae", "#aab2cf", "#848cb5"]
-        readonly property var _Light: ["Light" , "#1E0342", "#0E46A3", "#9AC8CD", "#E1F7F5"]
+        readonly property var _Light: ["Light" , "#caf0f8", "#0077b6", "#00b4d8", "#90e0ef"]
     }
     property var _CurrentTheme: _Themes._Dark
     property var themes: _Themes
@@ -19,6 +19,8 @@ Item {
     readonly property string _SecondaryBlue: _CurrentTheme[3]
     readonly property string _PrimaryGray: _CurrentTheme[4]
 
+
+    readonly property string _AttentionColor: "red"
 
     readonly property string _LightBlue: "#dbe2ef"
     readonly property string _LightPurple: "#7881ae"
@@ -36,7 +38,7 @@ Item {
     readonly property double _ButtonScaleY : 18.5
 
     readonly property double _SubjectScaleX : 1.1
-    readonly property double _SubjectScaleY : 5
+    readonly property double _SubjectScaleY : 3.5
 
     readonly property double _MenuButtonScaleX : 7
 

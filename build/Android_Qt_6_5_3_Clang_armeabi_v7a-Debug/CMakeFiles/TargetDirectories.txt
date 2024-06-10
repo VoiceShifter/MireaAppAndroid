@@ -24,3 +24,9 @@ F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/CMakeFiles/inst
 F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/CMakeFiles/install/strip.dir
 F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/CMakeFiles/appTest_autogen_timestamp_deps.dir
 F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/CMakeFiles/appTest_autogen.dir
+F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-build/CMakeFiles/edit_cache.dir
+F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-build/CMakeFiles/rebuild_cache.dir
+F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-build/CMakeFiles/list_install_components.dir
+F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-build/CMakeFiles/install.dir
+F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-build/CMakeFiles/install/local.dir
+F:/Source/Qt/Test/build/Android_Qt_6_5_3_Clang_armeabi_v7a-Debug/_deps/android_openssl-build/CMakeFiles/install/strip.dir
