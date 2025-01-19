@@ -10,12 +10,6 @@ Item
     property int _XResolution: parent.width
     property int _YResolution: parent.height
 
-    // ColorsNSizes
-    // {
-    //     id: ColorsNSizes
-    // }
-
-
     MyDrawer
     {
         id: _Drawer

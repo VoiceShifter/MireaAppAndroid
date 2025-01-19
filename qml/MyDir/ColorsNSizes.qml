@@ -41,7 +41,6 @@ Item {
     readonly property double _SubjectScaleY : 3.5
 
     readonly property double _MenuButtonScaleX : 7
-
     readonly property double _SideButtonScaleY : 8
 
     readonly property double _SliderScaleX : 4
@@ -49,7 +48,7 @@ Item {
 
     readonly property double _BreakerScaleY : 8
 
-
+    readonly property double _TextFieldScaleY : 0.043
 
 
 }

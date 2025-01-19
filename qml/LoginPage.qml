@@ -3,28 +3,36 @@ import QtLocation 5.15
 import QtQuick.Controls
 import "MyDir"
 import com.SocketCall 1.0
-
+import QtQuick.Controls.Basic
 Item {
 
-    property int _XResolution: parent.width
-    property int _YResolution: parent.height
+    property int _XResolution: parent.width //480  //debug
+    property int _YResolution: parent.height //1000 //debug
+    Component.onCompleted: {
+        console.log(_XResolution, _YResolution)
+        console.log("this is a resolutions")
+    }
 
     Rectangle
     {
         width: parent.width
         height: parent.height
-
+        /*onWidthChanged:
+        {
+            console.log("Size changed")
+        }*/ //debug
 
         color: "#7881AE"
         Text {
             id: _Logo
             text: qsTr("MIREA\nAPP")
 
-            font.pointSize: 64/*
+            font.pointSize: 64 /*
             anchors.topMargin: 20
             anchors.centerIn: parent*/
 
-            y: 80
+            anchors.bottom: _MainItem.top
+            anchors.bottomMargin: _YResolution * (ColorsNSizes._IconHolderScale - 0.1)
             color: "white"
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
@@ -34,29 +42,60 @@ Item {
             }
         Rectangle //main item
         {
+            id: _MainItem
             height: parent.height / 1.4
             width: parent.width
             color: "#112D4E"
             y: parent.height / 2.5
             radius: 60
             //<------------------------------------- Main Login screen
-
+            Component.onCompleted:
+            {
+                Qt.callLater(setSize)
+            }
+            function setSize()
+            {
+                _Ico.height = _XResolution * ColorsNSizes._IconHolderScale //debug
+                _Ico.width = _Ico.height
+            }
 
             Rectangle //Icon holder
             {
-
                 id: _Ico
+                anchors.top: parent.top
+                anchors.topMargin: 20
                 radius: 180
                 height: _XResolution * ColorsNSizes._IconHolderScale
                 width: height
+
+
+                onHeightChanged:
+                {
+                    if (height > 200)
+                    {
+                        _Ico.height = 200
+                        _Ico.width = Ico.height
+                    }
+                }
+
+                // }
+                // onWidthChanged:
+                // {
+                //     if (width > 100)
+                //     {
+                //         height: 100
+                //         console.log(height)
+                //     }
+                // }
+
+
                 color: "#DBE2EF"
-                y: 20
 
                 Image
                 {
                     source: "MyDir/Icons/home.svg"
-                    sourceSize.width: _XResolution * ColorsNSizes._IconHolderScale
-                    sourceSize.height: _XResolution * ColorsNSizes._IconHolderScale
+                    sourceSize.width: parent.height
+                    sourceSize.height: parent.width
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.bottomMargin: 5
@@ -85,16 +124,16 @@ Item {
                 anchors.top: login_text.bottom
                 anchors.topMargin: 20
                 anchors.horizontalCenter: parent.horizontalCenter
+                width: _XResolution / ColorsNSizes._TextFieldScale
 
                 background: Rectangle
                 {
                     radius: 60
                     implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
-                    implicitHeight: 20
+                    implicitHeight: _YResolution * ColorsNSizes._TextFieldScaleY
                     color: control.enabled ? "transparent" : "#7881ae"
                     border.color: control.enabled ? "#dbe2ef" : "transparent"
                 }
-
             }
 
             TextField
@@ -111,7 +150,7 @@ Item {
                 {
                     radius: 60
                     implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
-                    implicitHeight: 20
+                    implicitHeight: _YResolution * ColorsNSizes._TextFieldScaleY
                     color: control.enabled ? "transparent" : "#7881ae"
                     border.color: control.enabled ? "#dbe2ef" : "transparent"
                 }
