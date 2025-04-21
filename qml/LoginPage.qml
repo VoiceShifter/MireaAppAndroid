@@ -3,6 +3,7 @@ import QtLocation 5.15
 import QtQuick.Controls
 import "MyDir"
 import com.SocketCall 1.0
+import com.ServerCall 1.0
 import QtQuick.Controls.Basic
 Item {
 
@@ -11,6 +12,10 @@ Item {
     Component.onCompleted: {
         console.log(_XResolution, _YResolution)
         console.log("this is a resolutions")
+    }
+    ServerCall
+    {
+          id: _ServerCall
     }
 
     Rectangle
@@ -58,6 +63,7 @@ Item {
                 _Ico.height = _XResolution * ColorsNSizes._IconHolderScale //debug
                 _Ico.width = _Ico.height
             }
+
 
             Rectangle //Icon holder
             {
@@ -115,13 +121,47 @@ Item {
                 anchors.top: _Ico.bottom
 
             }
-            TextField
+            TextField //login field
             {
 
                 id: loginField
                 placeholderText: "Login"
                 placeholderTextColor: "red"
+
                 anchors.top: login_text.bottom
+                anchors.topMargin: 20
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: _XResolution / ColorsNSizes._TextFieldScale
+                onWidthChanged:
+                {
+                    if (loginField.width > 400)
+                    {
+                        loginField.width = 400
+                        passwordField.width = 400
+                    }
+                    if(_LoginButton.width > 300)
+                    {
+                          _LoginButton.width = 300
+                    }
+                }
+                background: Rectangle
+                {
+                    radius: 60
+                    implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
+                    implicitHeight: _YResolution * ColorsNSizes._TextFieldScaleY
+                    //color: control.enabled ? "transparent" : "#7881ae" debug
+                    //border.color: control.enabled ? "#dbe2ef" : "transparent"
+                }
+            }
+
+            TextField //password field
+            {
+                id: passwordField
+                placeholderText: "Password"
+                placeholderTextColor: "red"
+
+                //echoMode: TextInput.Password debug - to size field
+                anchors.top: loginField.bottom
                 anchors.topMargin: 20
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: _XResolution / ColorsNSizes._TextFieldScale
@@ -131,31 +171,12 @@ Item {
                     radius: 60
                     implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
                     implicitHeight: _YResolution * ColorsNSizes._TextFieldScaleY
-                    color: control.enabled ? "transparent" : "#7881ae"
-                    border.color: control.enabled ? "#dbe2ef" : "transparent"
+                    //color: control.enabled ? "transparent" : "#7881ae" debug
+                    //border.color: control.enabled ? "#dbe2ef" : "transparent"
                 }
-            }
 
-            TextField
-            {
-                id: passwordField
-                placeholderText: "Password"
-                placeholderTextColor: "red"
-
-                echoMode: TextInput.Password
-                anchors.top: loginField.bottom
-                anchors.topMargin: 20
-                anchors.horizontalCenter: parent.horizontalCenter
-                background: Rectangle
-                {
-                    radius: 60
-                    implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
-                    implicitHeight: _YResolution * ColorsNSizes._TextFieldScaleY
-                    color: control.enabled ? "transparent" : "#7881ae"
-                    border.color: control.enabled ? "#dbe2ef" : "transparent"
-                }
             }
-            Rectangle
+            Rectangle //login button
             {
                 id: _LoginButton
                 radius: 20
@@ -178,14 +199,18 @@ Item {
                     anchors.fill: parent
                     onClicked:
                     {
-                        //_Popup.open()
-                        _Loader.source = "Schedule.qml"
+                        if (_ServerCall._LoginInto(loginField.text, passwordField.text))
+                        {
 
+                              console.log("Login succesful")
+                              _Loader.source = "Schedule.qml"
+                        }
+                        else
+                        {
+                              console.log("Login failed")
+                        }
                     }
-
-
                 }
-
             }
         }
     }

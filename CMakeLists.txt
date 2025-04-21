@@ -20,6 +20,8 @@ qt_add_qml_module(appTest
         src/SocketCall.h src/SocketCall.cpp
         src/Searcher.h src/Searcher.cpp
         src/JsonParser.h src/JsonParser.cpp
+        src/ServerCall.h src/ServerCall.cpp
+
 
     QML_FILES
         qml/LoginPage.qml
@@ -37,13 +39,6 @@ qt_add_qml_module(appTest
     RESOURCES
     src/data/Teachers.txt
     src/data/Cache.txt
-
-
-
-
-
-
-
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

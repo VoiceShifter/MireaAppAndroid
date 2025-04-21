@@ -30,7 +30,7 @@ bool SocketCall::_Call(const QString &aLogin, const QString &aPassword)
       qDebug() << MainSocket.state();
       MainSocket.waitForConnected();
       qDebug() << MainSocket.state();
-      QString Request{"GET " + aLogin + ' '+ aPassword};
+      QString Request{"l\n" + aLogin + ' '+ aPassword};
 
       MainSocket.write(Request.toStdString().c_str());
       MainSocket.read(1);

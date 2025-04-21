@@ -40,7 +40,8 @@ public:
 
     explicit Searcher(QObject *parent = nullptr);
     ~Searcher();
-    std::unordered_set<std::string> Iterate(std::unordered_set<std::string>& aSet, std::string& Input, size_t Character);
+    std::unordered_set<std::string> Iterate
+          (std::unordered_set<std::string>& aSet, std::string& Input, size_t Character);
 
 
     const QString &Cache() const;
