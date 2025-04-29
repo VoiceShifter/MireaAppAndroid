@@ -1,14 +1,19 @@
 import QtQuick
 import QtLocation 5.15
 import QtQuick.Controls
+import com.Schedule
 import "MyDir"
-import com.JsonParser 1.0
 Item
 {
 
     id: _MainPage
     property int _XResolution: parent.width
     property int _YResolution: parent.height
+      Schedule
+      {
+            id: _Schedule
+
+      }
 
     MyDrawer
     {

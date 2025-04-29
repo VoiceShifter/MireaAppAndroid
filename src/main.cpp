@@ -3,8 +3,8 @@
 # include <QtNetwork>
 # include "SocketCall.h"
 # include "Searcher.h"
-# include "JsonParser.h"
-# include "ServerCall.h"
+# include "Schedule.hpp"
+# include "LoginCall.h"
 int main(int argc, char *argv[])
 {
       QGuiApplication app(argc, argv);
@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
       // qDebug() << reply->readAll(); //debug
       qmlRegisterType<SocketCall>("com.SocketCall", 1, 0, "Socket");
       qmlRegisterType<Searcher>("com.Searcher", 1, 0, "Searcher");
-      qmlRegisterType<JsonParser>("com.JsonParser", 1, 0, "JsonParser");
+      qmlRegisterType<Schedule>("com.Schedule", 1, 0, "Schedule");
       qmlRegisterType<ServerCall>("com.ServerCall", 1, 0, "ServerCall");
       QQmlApplicationEngine engine;
 
-      const QUrl url(QStringLiteral("qrc:/Test/qml/Main.qml"));
+      const QUrl url(QStringLiteral("qrc:/MireaApp/qml/Main.qml"));
       QObject::connect(
             &engine,
             &QQmlApplicationEngine::objectCreationFailed,
