@@ -10,10 +10,6 @@ JsonParser::JsonParser(QObject *parent)
                      "Student4", "Student5", "Student6",
                      "Student7", "Student8", "Student9"}
 {
-
-
-
-
       QFile Dynamic("NewSchedule.json");
       Dynamic.open(QIODevice::ReadWrite);
       fJsonFile.open(QIODevice::ReadWrite);

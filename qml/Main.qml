@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import com.JsonParser 1.0
 
 ApplicationWindow {
 
@@ -13,17 +12,9 @@ ApplicationWindow {
     {
         id: _Loader
         anchors.fill: parent
-        source:"LoginPage.qml"
+        source:"Schedule.qml"
 
     }
 
-    JsonParser
-    {
-        id: _Parser
-        Component.onCompleted:
-        {
 
-
-        }
-    }
 }

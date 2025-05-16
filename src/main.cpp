@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
       qmlRegisterType<Searcher>("com.Searcher", 1, 0, "Searcher");
       qmlRegisterType<Schedule>("com.Schedule", 1, 0, "Schedule");
       qmlRegisterType<ServerCall>("com.ServerCall", 1, 0, "ServerCall");
+      qmlRegisterType<DaysContentStruct>("ScheduleStruct", 1, 0, "ScheduleStruct");
       QQmlApplicationEngine engine;
 
       const QUrl url(QStringLiteral("qrc:/MireaApp/qml/Main.qml"));

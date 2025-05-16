@@ -82,3 +82,5 @@ install(TARGETS appTest
 )
 # Copy data files to the asset folder
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/src/data DESTINATION ${CMAKE_BINARY_DIR}/android/assets)
+set(Directory "Files")
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${Directory})
