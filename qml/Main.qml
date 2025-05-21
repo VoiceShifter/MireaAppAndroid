@@ -12,7 +12,7 @@ ApplicationWindow {
     {
         id: _Loader
         anchors.fill: parent
-        source:"Schedule.qml"
+        source:"LoginPage.qml"
 
     }
 

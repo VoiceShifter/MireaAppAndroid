@@ -6,11 +6,12 @@
 # include <string>
 # include <QDate>
 #include <sstream>
-void Schedule::ProcessFile(std::string& FilePath, std::string& CurrentDay) noexcept
+void Schedule::ProcessFile(std::string& FilePath) noexcept
 {
       std::fstream ScheduleFile(FilePath, std::ios_base::in);
       std::string Buffer{}, Day{};
       signed int InnerIndex{-1};
+      bool IsOdd{0};
       for(size_t Index{}; std::getline(ScheduleFile, Buffer, '\n'); ++Index)
       {
             std::stringstream InnerBuffer{Buffer};
@@ -32,7 +33,7 @@ void Schedule::ProcessFile(std::string& FilePath, std::string& CurrentDay) noexc
                         } // even
                         case 79:
                         {
-                              IsNext = 1;
+                              IsNext = 5;
                               break;
                         } // odd
                         case 84:
@@ -65,27 +66,68 @@ void Schedule::ProcessFile(std::string& FilePath, std::string& CurrentDay) noexc
                         case 0:
                         {
                               Day = Buffer.substr(4);
-                              Days[InnerIndex]->Day = QString::fromStdString(Day);
+                              OddDays[InnerIndex]->Day = QString::fromStdString(Day);
+                              EvenDays[InnerIndex]->Day = QString::fromStdString(Day);
                               break;
                         }
                         case 1:
                         {
-                              Days[InnerIndex]->ItemNames.append(QString::fromStdString(Buffer.substr(2)));
+                              if (Buffer.substr(2)=="Empty")
+                              {
+                                    EvenDays[InnerIndex]->Types.append("N/A");
+                                    EvenDays[InnerIndex]->TeacherNames.append("N/A");
+                                    EvenDays[InnerIndex]->Places.append("N/A");
+                              }
+                              IsOdd = 0;
+                              EvenDays[InnerIndex]->ItemNames.append(QString::fromStdString(Buffer.substr(2)));
+                              break;
+                        }
+                        case 5:
+                        {
+                              if (Buffer.substr(2)=="Empty")
+                              {
+                                    OddDays[InnerIndex]->Types.append("N/A");
+                                    OddDays[InnerIndex]->TeacherNames.append("N/A");
+                                    OddDays[InnerIndex]->Places.append("N/A");
+                              }
+                              IsOdd = 1;
+                              OddDays[InnerIndex]->ItemNames.append(QString::fromStdString(Buffer.substr(2)));
                               break;
                         }
                         case 2:
                         {
-                              Days[InnerIndex]->Types.append(QString::fromStdString(Buffer.substr(2)));
+                              if (IsOdd)
+                              {
+                                    OddDays[InnerIndex]->Types.append(QString::fromStdString(Buffer.substr(2)));
+                              }
+                              else
+                              {
+                                    EvenDays[InnerIndex]->Types.append(QString::fromStdString(Buffer.substr(2)));
+                              }
                               break;
                         }
                         case 3:
                         {
-                              Days[InnerIndex]->TeacherNames.append(QString::fromStdString(Buffer.substr(2)));
+                              if (IsOdd)
+                              {
+                                    OddDays[InnerIndex]->TeacherNames.append(QString::fromStdString(Buffer.substr(2)));
+                              }
+                              else
+                              {
+                                    EvenDays[InnerIndex]->TeacherNames.append(QString::fromStdString(Buffer.substr(2)));
+                              }
                               break;
                         }
                         case 4:
                         {
-                              Days[InnerIndex]->Places.append(QString::fromStdString(Buffer.substr(2)));
+                              if (IsOdd)
+                              {
+                                    OddDays[InnerIndex]->Places.append(QString::fromStdString(Buffer.substr(2)));
+                              }
+                              else
+                              {
+                                    EvenDays[InnerIndex]->Places.append(QString::fromStdString(Buffer.substr(2)));
+                              }
                               break;
                         }
                         default:
@@ -101,14 +143,35 @@ void Schedule::ProcessFile(std::string& FilePath, std::string& CurrentDay) noexc
             continue;
 
       }
+      // emit OddDays[CurrentDayInt]->TeacherNamesChanged();
+      // emit EvenDays[CurrentDayInt]->TeacherNamesChanged();
+      // emit OddDays[CurrentDayInt]->ItemNamesChanged();
+      // emit EvenDays[CurrentDayInt]->ItemNamesChanged();
+      // emit EvenDays[CurrentDayInt]->PlacesChanged();
+      // emit OddDays[CurrentDayInt]->PlacesChanged();
+      // emit EvenDays[CurrentDayInt]->TypesChanged();
+      // emit OddDays[CurrentDayInt]->TypesChanged();
+      // emit EvenDays[CurrentDayInt]->DayChanged();
+      // emit OddDays[CurrentDayInt]->DayChanged();
+      QVector<DaysContentStruct*>* ToIterate;
+      if (CurrentWeekNumber % 2 == 0)
+      {
+            ToIterate = &EvenDays;
+      }
+      else
+      {
+            ToIterate = &OddDays;
+      }
       for (size_t Index{0}; Index < Days.size(); ++Index)
       {
-            emit Days[Index]->TeacherNamesChanged();
-            emit Days[Index]->ItemNamesChanged();
-            emit Days[Index]->PlacesChanged();
-            emit Days[Index]->TypesChanged();
-            emit Days[Index]->DayChanged();
+            emit (*ToIterate)[Index]->TeacherNamesChanged();
+            emit (*ToIterate)[Index]->ItemNamesChanged();
+            emit (*ToIterate)[Index]->PlacesChanged();
+            emit (*ToIterate)[Index]->TypesChanged();
+            emit (*ToIterate)[Index]->DayChanged();
       }
+      emit OddDaysChanged();
+      emit EvenDaysChanged();
 
 }
 
@@ -138,23 +201,36 @@ Schedule::Schedule(QObject *parent)
 
       for(signed int Index{0}; Index < 7; ++Index)
       {
-            Days.push_back(new DaysContentStruct);
+            OddDays.push_back(new DaysContentStruct);
+            EvenDays.push_back(new DaysContentStruct);
       }
       Buffer = "Files/" + CurrentGroup + ".txt";
       if (std::filesystem::exists(Buffer))
       {            
             DifferentiateDay();
-            ProcessFile(Buffer, CurrentDayString);
+            ProcessFile(Buffer);
       }
       else
       {
             qDebug() << "No default schedule";
             RequestScheduleFile(CurrentGroup);
-
             DifferentiateDay();
-            ProcessFile(Buffer, CurrentDayString);
+            ProcessFile(Buffer);
       }
 
+}
+
+signed int Schedule::getCurrentWeekNumber() const
+{
+      return CurrentWeekNumber;
+}
+
+void Schedule::setCurrentWeekNumber(signed int newCurrentWeekNumber)
+{
+      if (CurrentWeekNumber == newCurrentWeekNumber)
+            return;
+      CurrentWeekNumber = newCurrentWeekNumber;
+      emit CurrentWeekNumberChanged();
 }
 
 bool Schedule::RequestScheduleFile(std::string& FileName)
@@ -180,15 +256,95 @@ bool Schedule::RequestScheduleFile(std::string& FileName)
       }
 }
 
-void Schedule::LoadDefault()
+int Schedule::getCurrentDayInt() const
+{
+      return CurrentDayInt;
+}
+
+void Schedule::setCurrentDayInt(int newCurrentDayInt)
+{
+      if (CurrentDayInt == newCurrentDayInt)
+            return;
+      CurrentDayInt = newCurrentDayInt;
+      emit CurrentDayIntChanged();
+}
+
+void Schedule::_LoadDefault()
 {
 
+}
+
+void Schedule::_IncrementDay(signed int Value)
+{
+      CurrentDayInt += Value;
+      if (CurrentDayInt > 5)
+      {
+            CurrentDayInt = CurrentDayInt - 6;
+            ++CurrentWeekNumber;
+      }
+      else if (CurrentDayInt < 0)
+      {
+            CurrentDayInt = 5;
+            --CurrentWeekNumber;
+      }
+      emit CurrentDayIntChanged();
+      emit CurrentWeekNumberChanged();
+}
+
+bool Schedule::_ChangeSchedule(QString Filename)
+{
+      std::string ConstString{Filename.toUpper().toStdString()};
+      std::string PathString{"Files/" + ConstString + ".txt"};
+      if (std::filesystem::exists(PathString))
+      {
+            OddDays.clear();
+            EvenDays.clear();
+            for(signed int Index{0}; Index < 7; ++Index)
+            {
+                  OddDays.push_back(new DaysContentStruct);
+                  EvenDays.push_back(new DaysContentStruct);
+            }
+            ProcessFile(PathString);
+            qDebug() << "Processing was succesfull";
+            return 1;
+      }
+      else if (RequestScheduleFile(ConstString))
+      {
+            OddDays.clear();
+            EvenDays.clear();
+            for(signed int Index{0}; Index < 7; ++Index)
+            {
+                  OddDays.push_back(new DaysContentStruct);
+                  EvenDays.push_back(new DaysContentStruct);
+            }
+            ProcessFile(PathString);
+            qDebug() << "Downloading and Processing was succesfull";
+            return 1;
+      }
+      else
+      {
+            qDebug() << "Error requesting file";
+            return 0;
+      }
+      return 0;
 }
 
 QVector<DaysContentStruct*> Schedule::getDays() const
 {
       qDebug() << "Hope that doesnt get called";
       return Days;
+}
+
+QVector<DaysContentStruct *> Schedule::OddgetDays() const
+{
+      qDebug() << "OddDays called";
+      return OddDays;
+}
+
+QVector<DaysContentStruct *> Schedule::EvengetDays() const
+{
+      qDebug() << "EvenDays called";
+      return EvenDays;
 }
 
 void Schedule::setDays(const QVector<DaysContentStruct *> &newDays)
@@ -199,34 +355,47 @@ void Schedule::setDays(const QVector<DaysContentStruct *> &newDays)
 
 signed int Schedule::DifferentiateDay()
 {
-      CurrentDayInt = QDateTime::currentDateTime().date().dayOfWeek();
+      CurrentDayInt = QDateTime::currentDateTime().date().dayOfWeek() - 1;
+      QDate Today{QDate::currentDate()};
+      int Year{};
+      if (Today.month() < 9)
+      {
+            Year = Today.year() - 1;
+      }
+      else
+      {
+            Year = Today.year();
+      }
+      QDate Start{Year, 9, 1};
+      CurrentWeekNumber = Start.daysTo(Today);
+      emit CurrentWeekNumberChanged();
       switch (CurrentDayInt) {
-      case 1:
+      case 0:
             CurrentDayString = "ПОНЕДЕЛЬНИК";
             break;
-      case 2:
+      case 1:
             CurrentDayString = "ВТОРНИК";
             break;
-      case 3:
+      case 2:
             CurrentDayString = "СРЕДА";
             break;
-      case 4:
+      case 3:
             CurrentDayString = "ЧЕТВЕРГ";
             break;
-      case 5:
+      case 4:
             CurrentDayString = "ПЯТНИЦА";
             break;
-      case 6:
+      case 5:
             CurrentDayString = "СУББОТА";
             break;
-      case 7:
+      case 6:
             CurrentDayString = "ВОСКРЕСЕНЬЕ";
 
             break;
       default:
             CurrentDayString = "0";
             return -1;
-      }
+      }      
       return 0;
 }
 

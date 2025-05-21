@@ -3,7 +3,7 @@ import QtLocation 5.15
 import QtQuick.Controls
 import com.Schedule
 import "MyDir"
-
+import com.ServerCall
 Item {
 
       id: _MainPage
@@ -13,6 +13,10 @@ Item {
       implicitWidth: 400
       Schedule {
             id: _Schedule
+      }
+      ServerCall
+      {
+            id: _ServerCall
       }
 
       MyDrawer {
@@ -29,18 +33,21 @@ Item {
                   id: _Message
                   anchors.horizontalCenter: _Group.horizontalCenter
                   anchors.bottom: _Group.top
+                  anchors.bottomMargin: 15
+                  font.pointSize: ColorsNSizes._SmallFont
                   text: "Введите группу"
             }
 
             TextField {
                   id: _Group
-                  width: parent.width - 20
+                  width: parent.width / (ColorsNSizes._ButtonScaleX * 0.6)
+                  font.pointSize: (ColorsNSizes._MediumFont * 0.8)
                   anchors.centerIn: parent
             }
             Rectangle {
                   id: _GroupField
                   anchors.top: _Group.bottom
-
+                  anchors.topMargin: 25
                   width: 100
                   height: 40
                   color: ColorsNSizes._PrimaryPurple
@@ -53,10 +60,17 @@ Item {
                   MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                              _Parser._SetGroup(_Group.text)
-                              _Parser._GetReply()
-                              _Parser._FillCurrentDayS()
-                              _Popup.close()
+                              console.log(_Group.text)
+                              if (_Schedule._ChangeSchedule(_Group.text) == 1)
+                              {
+                                    _Popup.close()
+                              }
+                              else
+                              {
+                                    _Message.text = "Неверная группа"
+                              }
+
+
                         }
                   }
             }
@@ -71,7 +85,7 @@ Item {
 
       Text {
             id: _WeekDay
-            text: _Schedule._Days[2]._Day
+            text: _Schedule._OddDays[_Schedule._CurrentDayInt]._Day
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: _Breaker.top
             anchors.bottomMargin: 10
@@ -92,8 +106,7 @@ Item {
                   anchors.fill: parent
 
                   onClicked: {
-                        _Parser._DecrementDay()
-                        _Parser._FillCurrentDayS()
+                        _Schedule._IncrementDay(-1)
                   }
             }
       }
@@ -108,15 +121,14 @@ Item {
             MouseArea {
                   anchors.fill: parent
                   onClicked: {
-                        _Parser._IncrementDay()
-                        _Parser._FillCurrentDayS()
+                        _Schedule._IncrementDay(1)
                   }
             }
       }
 
       Text {
             id: _StudentName
-            text: qsTr("username")
+            text: qsTr(_ServerCall._Username)
             color: "white"
             anchors.topMargin: 20
             anchors.right: parent.right
@@ -148,40 +160,56 @@ Item {
             anchors.top: parent.top
             width: parent.width
       }
+      property list<string> _TimesNames: ["9:00 - 10:30",
+            "10:40 - 12:10", "12:40 - 14:10", "14:20 - 15:50",
+            "16:20 - 17:50", "18:00 - 19:30"] //, "19:40 - 21:10"
+
+      function _OddEven()
+      {
+            if (_Schedule._CurrentWeekNumber % 2 == 0)
+            {
+                  console.log("Is even")
+                  return _Schedule._EvenDays
+            }
+            else
+            {
+                  console.log("Is odd")
+                  return _Schedule._OddDays
+            }
+      }
 
       ListView {
-            //            y: 80
-            spacing: 40
+            spacing: 20
             z: -2
+            id: _SubjectView
             width: parent.width
             height: parent.height - _Breaker.y - 5
-            contentHeight: height
-            model: _Schedule._Days[0]._ItemNames
+            model: _TimesNames
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             anchors.top: _Breaker.bottom
-            anchors.topMargin: 40
-            //reuseItems: True what?
+            anchors.topMargin: 20
+            displayMarginEnd: 170
 
-
-            //cacheBuffer: 5
             delegate: Subject {
                   id: _delegate
+
                   _IsBold: false
-                  _SubjectName: modelData
-                  _PlaceName: _Schedule._Days[0]._Places[index]
-                  _TeacherName: _Schedule._Days[0]._TeacherNames[index]
-                  _TypeName: _Schedule._Days[0]._Types[index]
+                  _SubjectName: _OddEven()[_Schedule._CurrentDayInt]._ItemNames[index]
+                  _PlaceName: _OddEven()[_Schedule._CurrentDayInt]._Places[index]
+                  _TeacherName: _OddEven()[_Schedule._CurrentDayInt]._TeacherNames[index]
+                  _TypeName: _OddEven()[_Schedule._CurrentDayInt]._Types[index]
+                  _TimeName: modelData
                   MouseArea {
                         anchors.fill: parent
                         onClicked: {
                               //_Loader.source = "MainPage5.qml"
                               console.log("Clicked subject button")
                               for (var i = 0; i < 12; i++)  {
-                                    console.log(_Schedule._Days[0]._Places[i])
+                                    console.log(modelData)
                                 }
                         }
-                  }
+                  }                  
             }
       }
 }
