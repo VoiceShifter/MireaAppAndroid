@@ -128,7 +128,7 @@ Item {
 
       Text {
             id: _StudentName
-            text: qsTr(_ServerCall._Username)
+            text: qsTr(_Schedule._UserName)
             color: "white"
             anchors.topMargin: 20
             anchors.right: parent.right
@@ -168,12 +168,10 @@ Item {
       {
             if (_Schedule._CurrentWeekNumber % 2 == 0)
             {
-                  console.log("Is even")
                   return _Schedule._EvenDays
             }
             else
             {
-                  console.log("Is odd")
                   return _Schedule._OddDays
             }
       }
@@ -195,11 +193,12 @@ Item {
                   id: _delegate
 
                   _IsBold: false
-                  _SubjectName: _OddEven()[_Schedule._CurrentDayInt]._ItemNames[index]
+                  _SubjectName: _OddEven()[_Schedule._CurrentDayInt]._ItemNames[index] == undefined ? "Empty" : _OddEven()[_Schedule._CurrentDayInt]._ItemNames[index]
                   _PlaceName: _OddEven()[_Schedule._CurrentDayInt]._Places[index]
                   _TeacherName: _OddEven()[_Schedule._CurrentDayInt]._TeacherNames[index]
                   _TypeName: _OddEven()[_Schedule._CurrentDayInt]._Types[index]
-                  _TimeName: modelData
+                  _TimeName: modelData                  
+
                   MouseArea {
                         anchors.fill: parent
                         onClicked: {

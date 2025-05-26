@@ -16,19 +16,6 @@ void ServerCall::setIsLoged(bool newIsLoged)
       emit IsLogedChanged();
 }
 
-QString ServerCall::getUsername() const
-{
-      return Username;
-}
-
-void ServerCall::setUsername(const QString &newUsername)
-{
-      if (Username == newUsername)
-            return;
-      Username = newUsername;
-      emit UsernameChanged();
-}
-
 ServerCall::ServerCall(QObject *parent)
       : QObject{parent},  IsLoged{0}
 {
@@ -39,23 +26,9 @@ ServerCall::ServerCall(QObject *parent)
       {
             CacheContent.push_back(Buffer);
       }
-      if (CacheContent.size() > 2)
+      if (CacheContent.size() > 1)
       {
-            IsLoged = 1;
-            std::stringstream FullName{CacheContent[1]};
-            for (size_t Index{0};std::getline(FullName, Buffer, ' ');++Index)
-            {
-                  if (Index == 0)
-                  {
-                        Username += Buffer + ' ';
-                  }
-                  else
-                  {
-                        QString Wtf{QString::fromUtf8(Buffer)};
-                        Username += Wtf[0] + '.';
-                  }
-            }
-
+            IsLoged = 1;            
       }
       else
       {

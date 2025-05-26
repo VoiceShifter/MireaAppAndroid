@@ -36,7 +36,7 @@ Item {
 
       Text {
             id: _StudentName
-            text: qsTr("username")
+            text: qsTr("Голосов Д.Ю")
             color: "white"
             anchors.topMargin: 20
             anchors.right: parent.right
@@ -94,7 +94,7 @@ Item {
       }
       Rectangle {
             id: _SaveButton
-            width: 100
+            width: _text.width
             height: 50
             color: ColorsNSizes._CoolGray
             radius: 60
@@ -104,7 +104,7 @@ Item {
             anchors.bottomMargin: 20
 
             Text {
-
+                  id: _text
                   text: qsTr("Отправить")
                   font.bold: true
                   font.pointSize: 16

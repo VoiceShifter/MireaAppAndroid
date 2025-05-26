@@ -22,6 +22,7 @@ qt_add_qml_module(appTest
             src/JsonParser.h src/JsonParser.cpp
             src/LoginCall.h src/LoginCall.cpp
             src/Schedule.hpp src/Schedule.cpp
+            src/AttendanceSystem.hpp src/AttendanceSystem.cpp
 
       QML_FILES
             qml/LoginPage.qml
@@ -39,6 +40,7 @@ qt_add_qml_module(appTest
       RESOURCES
             src/data/Teachers.txt
             src/data/Cache.txt
+
 
 )
 

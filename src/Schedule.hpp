@@ -46,15 +46,17 @@ class Schedule : public QObject
       Q_OBJECT
       QUdpSocket  MainSocket;
       std::string CurrentGroup{};
-      std::string UserName{};
+      QString UserName{};
       void ProcessFile(std::string& FilePath)noexcept;
-
+      void ProcessTeachersFile(std::string& FilePath);
   public:
       explicit Schedule(QObject *parent = nullptr);
       QVector<DaysContentStruct*> Days;
       QVector<DaysContentStruct*> OddDays;
       QVector<DaysContentStruct*> EvenDays;
-
+      void PrepareStructures();
+      std::vector<std::string> DaysStringArray{"ПОНЕДЕЛЬНИК", "ВТОРНИК", "СРЕДА", "ЧЕТВЕРГ", "ПЯТНИЦА",
+                                               "СУББОТА", "ВОСКРЕСЕНЬЕ"};
       signed int  CurrentDayInt{};
       signed int  CurrentWeekNumber{};
       std::string CurrentDayString{};
@@ -78,6 +80,9 @@ class Schedule : public QObject
       signed int getCurrentWeekNumber() const;
       void setCurrentWeekNumber(signed int newCurrentWeekNumber);
 
+      QString getUserName() const;
+      void setUserName(const QString &newUserName);
+
   signals:
       void DaysChanged();
       void OddDaysChanged();
@@ -85,12 +90,15 @@ class Schedule : public QObject
       void CurrentDayIntChanged();
       void CurrentWeekNumberChanged();
 
+      void UserNameChanged();
+
   private:
       Q_PROPERTY(QVector<DaysContentStruct*> _Days READ getDays WRITE setDays NOTIFY DaysChanged FINAL)
       Q_PROPERTY(QVector<DaysContentStruct*> _OddDays READ OddgetDays NOTIFY OddDaysChanged FINAL)
       Q_PROPERTY(QVector<DaysContentStruct*> _EvenDays READ EvengetDays NOTIFY EvenDaysChanged FINAL)
       Q_PROPERTY(signed int _CurrentWeekNumber READ getCurrentWeekNumber WRITE setCurrentWeekNumber NOTIFY CurrentWeekNumberChanged FINAL)
       Q_PROPERTY(signed int _CurrentDayInt READ getCurrentDayInt WRITE setCurrentDayInt NOTIFY CurrentDayIntChanged FINAL)
+      Q_PROPERTY(QString _UserName READ getUserName WRITE setUserName NOTIFY UserNameChanged FINAL)
 };
 
 #endif // SCHEDULE_HPP
