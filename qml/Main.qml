@@ -13,6 +13,19 @@ ApplicationWindow {
         id: _Loader
         anchors.fill: parent
         source:"LoginPage.qml"
+        onSourceChanged: animation.start()
+
+
+                NumberAnimation {
+                    id: animation
+                    target: _Loader.item
+                    property: "opacity"
+                    from: 0
+                    to: 1
+                    duration: 350
+                    easing.type: Easing.Linear
+                }
+
 
     }
 

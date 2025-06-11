@@ -48,7 +48,9 @@ class Schedule : public QObject
       std::string CurrentGroup{};
       QString UserName{};
       void ProcessFile(std::string& FilePath)noexcept;
-      void ProcessTeachersFile(std::string& FilePath);
+      void ProcessTeachersFile(std::string& FilePath);      
+      QString ErrorMessage{};
+      QString QCurrentGroup{};
   public:
       explicit Schedule(QObject *parent = nullptr);
       QVector<DaysContentStruct*> Days;
@@ -56,15 +58,18 @@ class Schedule : public QObject
       QVector<DaysContentStruct*> EvenDays;
       void PrepareStructures();
       std::vector<std::string> DaysStringArray{"ПОНЕДЕЛЬНИК", "ВТОРНИК", "СРЕДА", "ЧЕТВЕРГ", "ПЯТНИЦА",
-                                               "СУББОТА", "ВОСКРЕСЕНЬЕ"};
+                                                "СУББОТА", "ВОСКРЕСЕНЬЕ"};
       signed int  CurrentDayInt{};
       signed int  CurrentWeekNumber{};
       std::string CurrentDayString{};
 
+
       Q_INVOKABLE void _LoadDefault();
       Q_INVOKABLE void _IncrementDay(signed int Value);
-      Q_INVOKABLE bool _ChangeSchedule(QString Filename);
+      Q_INVOKABLE int _ChangeSchedule(QString Filename);
+      Q_INVOKABLE signed int _SubjectClicked(QString SubjectName);
       bool RequestScheduleFile(std::string& Filename);
+      bool TrySubject(std::string &SubjectName, std::string &UserName);
 
       signed int       DifferentiateDay();
       void ParseFileSchedule(std::string& Filename);
@@ -83,6 +88,12 @@ class Schedule : public QObject
       QString getUserName() const;
       void setUserName(const QString &newUserName);
 
+      QString getErrorMessage() const;
+      void setErrorMessage(const QString &newErrorMessage);
+
+      QString getQCurrentGroup() const;
+      void setQCurrentGroup(const QString &newQCurrentGroup);
+
   signals:
       void DaysChanged();
       void OddDaysChanged();
@@ -92,6 +103,10 @@ class Schedule : public QObject
 
       void UserNameChanged();
 
+      void ErrorMessageChanged();
+
+      void QCurrentGroupChanged();
+
   private:
       Q_PROPERTY(QVector<DaysContentStruct*> _Days READ getDays WRITE setDays NOTIFY DaysChanged FINAL)
       Q_PROPERTY(QVector<DaysContentStruct*> _OddDays READ OddgetDays NOTIFY OddDaysChanged FINAL)
@@ -99,6 +114,8 @@ class Schedule : public QObject
       Q_PROPERTY(signed int _CurrentWeekNumber READ getCurrentWeekNumber WRITE setCurrentWeekNumber NOTIFY CurrentWeekNumberChanged FINAL)
       Q_PROPERTY(signed int _CurrentDayInt READ getCurrentDayInt WRITE setCurrentDayInt NOTIFY CurrentDayIntChanged FINAL)
       Q_PROPERTY(QString _UserName READ getUserName WRITE setUserName NOTIFY UserNameChanged FINAL)
+      Q_PROPERTY(QString _ErrorMessage READ getErrorMessage WRITE setErrorMessage NOTIFY ErrorMessageChanged FINAL)
+      Q_PROPERTY(QString _QCurrentGroup READ getQCurrentGroup WRITE setQCurrentGroup NOTIFY QCurrentGroupChanged FINAL)
 };
 
 #endif // SCHEDULE_HPP

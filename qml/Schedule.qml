@@ -3,7 +3,7 @@ import QtLocation 5.15
 import QtQuick.Controls
 import com.Schedule
 import "MyDir"
-import com.ServerCall
+
 Item {
 
       id: _MainPage
@@ -13,21 +13,89 @@ Item {
       implicitWidth: 400
       Schedule {
             id: _Schedule
-      }
-      ServerCall
-      {
-            id: _ServerCall
+            Component.onCompleted: {
+                  if (_Schedule._ErrorMessage != "") {
+                        _ErrorPopup.open()
+                  }
+            }
       }
 
       MyDrawer {
             id: _Drawer
             z: 0
       }
+
+      Popup {
+            id: _ErrorPopup
+            enter: Transition {
+                  NumberAnimation {
+                        property: "opacity"
+                        from: 0.0
+                        to: 1.0
+                  }
+            }
+            exit: Transition {
+                  NumberAnimation {
+                        property: "opacity"
+                        from: 1.0
+                        to: 0.0
+                  }
+            }
+            width: parent.width / 2
+            height: parent.height / 6
+            background: Rectangle {
+                  anchors.fill: parent
+                  radius: 30
+                  color: ColorsNSizes._PrimaryPurple
+                  border.color: ColorsNSizes._SecondaryBlue
+                  border.width: 3
+            }
+            anchors.centerIn: parent
+            Text {
+                  id: _ErrorText
+                  anchors.horizontalCenter: _ErrorPopup.horizontalCenter
+                  anchors.top: parent.top
+                  anchors.topMargin: 10
+                  horizontalAlignment: Text.AlignHCenter
+                  width: parent.width
+                  wrapMode: Text.Wrap
+                  font.pointSize: ColorsNSizes._SmallFont
+                  text: _Schedule._ErrorMessage
+            }
+            Rectangle {
+                  anchors.bottom: parent.bottom
+                  anchors.horizontalCenter: parent.horizontalCenter
+                  anchors.bottomMargin: 15
+                  width: parent.width / 2
+                  height: parent.height / 3
+                  radius: 30
+                  color: ColorsNSizes._PrimaryBlue
+                  Text {
+                        text: qsTr("OK")
+                        font.pointSize: ColorsNSizes._SmallFont
+                        anchors.centerIn: parent
+                  }
+                  MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                              console.log("popup closed")
+                              _ErrorPopup.close()
+                        }
+                  }
+            }
+      }
+
       Popup {
             id: _Popup
-            width: 250
-            height: 250
-
+            width: parent.width / 2
+            height: parent.height / 6
+            background: Rectangle {
+                  anchors.fill: parent
+                  radius: 30
+                  color: ColorsNSizes._PrimaryPurple
+                  border.color: ColorsNSizes._SecondaryBlue
+                  border.width: 3
+            }
             anchors.centerIn: parent
             Text {
                   id: _Message
@@ -46,11 +114,12 @@ Item {
             }
             Rectangle {
                   id: _GroupField
-                  anchors.top: _Group.bottom
-                  anchors.topMargin: 25
+                  anchors.bottom: parent.bottom
+                  anchors.bottomMargin: 5
                   width: 100
                   height: 40
-                  color: ColorsNSizes._PrimaryPurple
+                  radius: 30
+                  color: ColorsNSizes._SecondaryBlue
                   anchors.horizontalCenter: _Group.horizontalCenter
                   Text {
                         anchors.centerIn: parent
@@ -61,16 +130,15 @@ Item {
                         anchors.fill: parent
                         onClicked: {
                               console.log(_Group.text)
-                              if (_Schedule._ChangeSchedule(_Group.text) == 1)
-                              {
+                              var Results = _Schedule._ChangeSchedule(
+                                                _Group.text)
+                              if (Results == 1) {
                                     _Popup.close()
-                              }
-                              else
-                              {
+                              } else if (Results == 2) {
+                                    _Message.text = "Ошибка сервера"
+                              } else {
                                     _Message.text = "Неверная группа"
                               }
-
-
                         }
                   }
             }
@@ -141,6 +209,16 @@ Item {
                   }
             }
       }
+      Text {
+            id: _CurrentGroup
+            text: qsTr(_Schedule._QCurrentGroup)
+            color: "white"
+            anchors.top: _StudentName.bottom
+            anchors.topMargin: -5
+            anchors.right: parent.right
+            font.pointSize: 24
+            font.bold: false
+      }
 
       Rectangle //breaker
       {
@@ -160,18 +238,12 @@ Item {
             anchors.top: parent.top
             width: parent.width
       }
-      property list<string> _TimesNames: ["9:00 - 10:30",
-            "10:40 - 12:10", "12:40 - 14:10", "14:20 - 15:50",
-            "16:20 - 17:50", "18:00 - 19:30"] //, "19:40 - 21:10"
+      property list<string> _TimesNames: ["9:00 - 10:30", "10:40 - 12:10", "12:40 - 14:10", "14:20 - 15:50", "16:20 - 17:50", "18:00 - 19:30"] //, "19:40 - 21:10"
 
-      function _OddEven()
-      {
-            if (_Schedule._CurrentWeekNumber % 2 == 0)
-            {
+      function _OddEven() {
+            if (_Schedule._CurrentWeekNumber % 2 == 0) {
                   return _Schedule._EvenDays
-            }
-            else
-            {
+            } else {
                   return _Schedule._OddDays
             }
       }
@@ -193,22 +265,34 @@ Item {
                   id: _delegate
 
                   _IsBold: false
-                  _SubjectName: _OddEven()[_Schedule._CurrentDayInt]._ItemNames[index] == undefined ? "Empty" : _OddEven()[_Schedule._CurrentDayInt]._ItemNames[index]
-                  _PlaceName: _OddEven()[_Schedule._CurrentDayInt]._Places[index]
-                  _TeacherName: _OddEven()[_Schedule._CurrentDayInt]._TeacherNames[index]
+                  _SubjectName: _OddEven(
+                                      )[_Schedule._CurrentDayInt]._ItemNames[index]
+                                == undefined ? "Empty" : _OddEven(
+                                                     )[_Schedule._CurrentDayInt]._ItemNames[index]
+                  _PlaceName: _OddEven(
+                                    )[_Schedule._CurrentDayInt]._Places[index]
+                  _TeacherName: _OddEven(
+                                      )[_Schedule._CurrentDayInt]._TeacherNames[index]
                   _TypeName: _OddEven()[_Schedule._CurrentDayInt]._Types[index]
-                  _TimeName: modelData                  
+                  _TimeName: modelData
 
                   MouseArea {
                         anchors.fill: parent
                         onClicked: {
                               //_Loader.source = "MainPage5.qml"
-                              console.log("Clicked subject button")
-                              for (var i = 0; i < 12; i++)  {
-                                    console.log(modelData)
-                                }
+                              console.log(_delegate._SubjectName)
+                              if (_delegate._SubjectName != "Empty")
+                              {
+                                    if (_Schedule._SubjectClicked(
+                                                      _delegate._SubjectName) == 0) {
+                                          _ErrorPopup.open()
+                                    } else {
+                                          _Loader.source = "SubjectPage.qml"
+                                          console.log("Open subject")
+                                    }
+                              }
                         }
-                  }                  
+                  }
             }
       }
 }

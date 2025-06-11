@@ -2,7 +2,7 @@ import QtQuick
 import QtLocation 5.15
 import QtQuick.Controls
 import "MyDir"
-
+import com.Attendance 1.0
 Item {
 
       property int _XResolution: parent.width
@@ -92,6 +92,11 @@ Item {
                   _StudentName: modelData
             }
       }
+      Attendance
+      {
+            id: _Attendance
+      }
+
       Rectangle {
             id: _SaveButton
             width: _text.width
@@ -114,6 +119,7 @@ Item {
             MouseArea {
                   anchors.fill: parent
                   onClicked: {
+                        _Attendance._SendFile()
                         console.log("File Saved")
                   }
             }

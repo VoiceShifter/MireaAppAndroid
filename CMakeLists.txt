@@ -40,6 +40,10 @@ qt_add_qml_module(appTest
       RESOURCES
             src/data/Teachers.txt
             src/data/Cache.txt
+            SOURCES src/SubjectSystem.hpp src/SubjectSystem.cpp
+            QML_FILES qml/SubjectPage.qml
+            QML_FILES qml/MyDir/File.qml
+            SOURCES src/Reseter.hpp src/Reseter.cpp
 
 
 )
@@ -86,3 +90,5 @@ install(TARGETS appTest
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/src/data DESTINATION ${CMAKE_BINARY_DIR}/android/assets)
 set(Directory "Files")
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${Directory})
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/Students)
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${Directory}/Subjects)

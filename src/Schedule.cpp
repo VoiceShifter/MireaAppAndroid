@@ -6,6 +6,7 @@
 # include <string>
 # include <QDate>
 #include <sstream>
+# include <assert.h>
 QString Schedule::getUserName() const
 {
       return UserName;
@@ -218,8 +219,9 @@ int DifferentiateDayString(std::string& DayString)
       {
             return 6;
       }
-
+      return -1;
 }
+
 void Schedule::ProcessTeachersFile(std::string &FilePath)
 {
 
@@ -444,6 +446,32 @@ void Schedule::ProcessTeachersFile(std::string &FilePath)
       emit EvenDaysChanged();      
 }
 
+QString Schedule::getQCurrentGroup() const
+{
+      return QCurrentGroup;
+}
+
+void Schedule::setQCurrentGroup(const QString &newQCurrentGroup)
+{
+      if (QCurrentGroup == newQCurrentGroup)
+            return;
+      QCurrentGroup = newQCurrentGroup;
+      emit QCurrentGroupChanged();
+}
+
+QString Schedule::getErrorMessage() const
+{
+      return ErrorMessage;
+}
+
+void Schedule::setErrorMessage(const QString &newErrorMessage)
+{
+      if (ErrorMessage == newErrorMessage)
+            return;
+      ErrorMessage = newErrorMessage;
+      emit ErrorMessageChanged();
+}
+
 void Schedule::PrepareStructures()
 {
       OddDays.clear();
@@ -473,9 +501,10 @@ Schedule::Schedule(QObject *parent)
       {
             FileContent.push_back(Buffer);
       }
-      if (FileContent.size() > 0)
+      if (FileContent.size() > 2)
       {
             CurrentGroup = FileContent[FileContent.size()-1];
+            QCurrentGroup = QString::fromStdString(CurrentGroup);
             std::stringstream FullName{FileContent[1]};
             for (size_t Index{0};std::getline(FullName, Buffer, ' ');++Index)
             {
@@ -514,8 +543,14 @@ Schedule::Schedule(QObject *parent)
       else
       {
             qDebug() << "No default schedule";
-            RequestScheduleFile(CurrentGroup);
             DifferentiateDay();
+
+            if (!RequestScheduleFile(CurrentGroup))
+            {
+                  ErrorMessage = "No reply from server";
+                  emit ErrorMessageChanged();
+                  return;
+            }
             if (Buffer.find(' ') != std::string::npos)
             {
                   ProcessFile(Buffer);
@@ -564,6 +599,48 @@ bool Schedule::RequestScheduleFile(std::string& FileName)
       }
 }
 
+bool Schedule::TrySubject(std::string& SubjectName, std::string& UserName)
+{
+      MainSocket.bind(QHostAddress::LocalHost, 33333);
+      std::string Request{"s\n" + SubjectName + '\n' + UserName};
+      MainSocket.writeDatagram(Request.c_str(), QHostAddress(QHostAddress::LocalHost), 32323);
+      MainSocket.waitForBytesWritten();
+      MainSocket.waitForReadyRead();
+      QNetworkDatagram Datagram {MainSocket.receiveDatagram()};      
+      Request = "Files/Subjects/" + SubjectName + ".txt";
+      std::string Reply{Datagram.data().toStdString()};
+      if (Reply == "0")
+      {
+            ErrorMessage = "Нет доступа";
+            emit ErrorMessageChanged();
+            return 0;
+      }
+      else if (Reply == "")
+      {
+            ErrorMessage = "Нет доступа";
+            emit ErrorMessageChanged();
+            return 0;
+      }
+      else
+      {
+            std::fstream SubjectCache{"Files/Subjects/Cache.txt", std::ios_base::out};
+            SubjectCache << Request << '\n' << SubjectName;
+            SubjectCache.close();
+            if(std::filesystem::exists(Request))
+            {
+                  return 1;
+            }
+            else
+            {
+                  std::fstream SubjectFile(Request, std::ios_base::out);
+                  SubjectFile << Reply;
+                  SubjectFile.close();
+                  return 1;
+            }
+      }
+      return 0;
+}
+
 int Schedule::getCurrentDayInt() const
 {
       return CurrentDayInt;
@@ -599,8 +676,10 @@ void Schedule::_IncrementDay(signed int Value)
       emit CurrentWeekNumberChanged();
 }
 
-bool Schedule::_ChangeSchedule(QString Filename)
+int Schedule::_ChangeSchedule(QString Filename)
 {
+      QCurrentGroup = Filename;
+      emit QCurrentGroupChanged();
       std::string ConstString{Filename.toUpper().toStdString()};
       std::string PathString{"Files/" + ConstString + ".txt"};
       if (std::filesystem::exists(PathString))
@@ -636,8 +715,33 @@ bool Schedule::_ChangeSchedule(QString Filename)
       else
       {
             qDebug() << "Error requesting file";
+            return 2;
+      }
+      return 0;
+}
+
+signed int Schedule::_SubjectClicked(QString SubjectName)
+{
+      std::fstream Cachefile("Files/Cache.txt", std::ios_base::in);
+      std::vector<std::string> FileContent{};
+      std::string Buffer{};
+
+      FileContent.reserve(8);
+      for (;std::getline(Cachefile, Buffer, '\n');)
+      {
+            FileContent.push_back(Buffer);
+      }
+
+      Buffer = SubjectName.toStdString();
+      if(!TrySubject(Buffer, FileContent[1]))
+      {
             return 0;
       }
+      else
+      {
+            return 1;
+      }
+
       return 0;
 }
 
@@ -668,16 +772,24 @@ signed int Schedule::DifferentiateDay()
       CurrentDayInt = QDateTime::currentDateTime().date().dayOfWeek() - 1;
       QDate Today{QDate::currentDate()};
       int Year{};
+      QDate Start;
       if (Today.month() < 9)
       {
             Year = Today.year() - 1;
+            Start = QDate(Year, 1, 1);
       }
       else
       {
             Year = Today.year();
+            Start = QDate(Year, 9, 1);
       }
-      QDate Start{Year, 9, 1};
-      CurrentWeekNumber = Start.daysTo(Today);
+
+      CurrentWeekNumber = Start.daysTo(Today) / 7;
+      for (;CurrentWeekNumber > 16;)
+      {
+            CurrentWeekNumber-=16;
+      }
+      qDebug() << CurrentWeekNumber << " - номер недели";
       emit CurrentWeekNumberChanged();
       switch (CurrentDayInt) {
       case 0:

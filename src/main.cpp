@@ -5,6 +5,9 @@
 # include "Searcher.h"
 # include "Schedule.hpp"
 # include "LoginCall.h"
+# include "SubjectSystem.hpp"
+# include "Reseter.hpp"
+# include "AttendanceSystem.hpp"
 int main(int argc, char *argv[])
 {
       QGuiApplication app(argc, argv);
@@ -23,6 +26,9 @@ int main(int argc, char *argv[])
       qmlRegisterType<Schedule>("com.Schedule", 1, 0, "Schedule");
       qmlRegisterType<ServerCall>("com.ServerCall", 1, 0, "ServerCall");
       qmlRegisterType<DaysContentStruct>("ScheduleStruct", 1, 0, "ScheduleStruct");
+      qmlRegisterType<SubjectSystem>("com.SubjectSystem", 1, 0, "SubjectSystem");
+      qmlRegisterType<Reseter>("com.Reseter", 1, 0, "Reseter");
+      qmlRegisterType<AttendanceSystem>("com.Attendance", 1, 0, "Attendance");
       QQmlApplicationEngine engine;
 
       const QUrl url(QStringLiteral("qrc:/MireaApp/qml/Main.qml"));

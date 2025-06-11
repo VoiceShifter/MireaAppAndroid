@@ -1,12 +1,16 @@
 import QtQuick
 import QtQuick.Controls
-
+import com.Reseter 1.0
 Drawer {
       id: _Drawer
       width: _XResolution * 0.66
       height: _YResolution
 
       readonly property int _ButtonHeight: _YResolution / ColorsNSizes._SideButtonScaleY
+      Reseter
+      {
+            id: _Reseter
+      }
 
       Row {
             spacing: 10
@@ -38,6 +42,7 @@ Drawer {
       }
 
       Column {
+            id: _Column
             spacing: -1
             width: parent.width
 
@@ -110,5 +115,30 @@ Drawer {
                         }
                   }
             }
+            Rectangle {
+                  width: parent.width
+                  border.color: "black"
+                  border.width: 1
+
+                  height: _ButtonHeight
+                  color: ColorsNSizes._PrimaryGray
+                  Text {
+                        id: _ToExit
+                        text: qsTr("ВЫЙТИ")
+                        font.pointSize: ColorsNSizes._MediumFont
+                        color: "black"
+                        anchors.centerIn: parent
+                  }
+                  MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                              _Reseter._Reset()
+                              _Loader.source = "LoginPage.qml"
+                              _Drawer.close()
+                              console.log("Clicked LoginButton")
+                        }
+                  }
+            }
       }
+
 }
