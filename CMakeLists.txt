@@ -66,15 +66,7 @@ target_link_libraries(appTest
 )
 
 if (ANDROID)
-      include(FetchContent)
-      FetchContent_Declare(
-            android_openssl
-            DOWNLOAD_EXTRACT_TIMESTAMP true
-            URL https://github.com/KDAB/android_openssl/archive/refs/heads/master.zip
-      )
-
-      FetchContent_MakeAvailable(android_openssl)
-      include(${android_openssl_SOURCE_DIR}/android_openssl.cmake)
+      include(${CMAKE_SOURCE_DIR}/android_openssl/android_openssl.cmake)
 endif()
 if (ANDROID)
       add_android_openssl_libraries(appTest)
@@ -92,3 +84,8 @@ set(Directory "Files")
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${Directory})
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/Students)
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${Directory}/Subjects)
+
+
+list(APPEND QML_DIRS "F:/Qt/Tools/QtCreator/bin/qml")
+list(APPEND QML_DIRS "F:/Qt/6.5.3/msvc2019_64/qml")
+set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/qml ${CMAKE_BINARY_DIR}/imports CACHE STRING "" FORCE)

@@ -18,7 +18,7 @@ class ServerCall : public QObject
   public:
       ServerCall(QObject *parent = nullptr);
       void WriteCache(std::string& ToWrite);
-      Q_INVOKABLE bool _LoginInto(const QString& Login, const QString& Password); //debug Change from local Ip
+      Q_INVOKABLE signed int _LoginInto(const QString& Login, const QString& Password); //debug Change from local Ip
 
       bool getIsLoged() const;
       void setIsLoged(bool newIsLoged);

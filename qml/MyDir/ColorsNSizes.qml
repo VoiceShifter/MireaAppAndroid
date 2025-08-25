@@ -6,8 +6,8 @@ Item {
 
       QtObject {
             id: _Themes
-            readonly property var _Dark: ["Dark", "#dbe2ef", "#7881ae", "#aab2cf", "#848cb5"]
-            readonly property var _Light: ["Light", "#caf0f8", "#0077b6", "#00b4d8", "#90e0ef"]
+            readonly property var _Dark: ["Темная тема", "#dbe2ef", "#7881ae", "#aab2cf", "#848cb5"]
+            readonly property var _Light: ["Светлая тема", "#caf0f8", "#0077b6", "#00b4d8", "#90e0ef"]
       }
       property var _CurrentTheme: _Themes._Dark
       property var themes: _Themes

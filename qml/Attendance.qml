@@ -26,7 +26,65 @@ Item {
             id: _Drawer
             z: 6
       }
-
+      Popup {
+            id: _ErrorPopup
+            enter: Transition {
+                  NumberAnimation {
+                        property: "opacity"
+                        from: 0.0
+                        to: 1.0
+                  }
+            }
+            exit: Transition {
+                  NumberAnimation {
+                        property: "opacity"
+                        from: 1.0
+                        to: 0.0
+                  }
+            }
+            width: parent.width / 2
+            height: parent.height / 6
+            background: Rectangle {
+                  anchors.fill: parent
+                  radius: 30
+                  color: ColorsNSizes._PrimaryPurple
+                  border.color: ColorsNSizes._SecondaryBlue
+                  border.width: 3
+            }
+            anchors.centerIn: parent
+            Text {
+                  id: _ErrorText
+                  anchors.horizontalCenter: _ErrorPopup.horizontalCenter
+                  anchors.top: parent.top
+                  anchors.topMargin: 10
+                  horizontalAlignment: Text.AlignHCenter
+                  width: parent.width
+                  wrapMode: Text.Wrap
+                  font.pointSize: ColorsNSizes._SmallFont
+                  text: _Attendance._ErrorMessage
+            }
+            Rectangle {
+                  anchors.bottom: parent.bottom
+                  anchors.horizontalCenter: parent.horizontalCenter
+                  anchors.bottomMargin: 15
+                  width: parent.width / 2
+                  height: parent.height / 3
+                  radius: 30
+                  color: ColorsNSizes._PrimaryBlue
+                  Text {
+                        text: qsTr("OK")
+                        font.pointSize: ColorsNSizes._SmallFont
+                        anchors.centerIn: parent
+                  }
+                  MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                              console.log("popup closed")
+                              _ErrorPopup.close()
+                        }
+                  }
+            }
+      }
       Rectangle {
             anchors.fill: parent
             //        width: parent.width
@@ -76,6 +134,10 @@ Item {
             _First: "+"
             _Second: "-"
             _Third: "?"
+            MouseArea
+            {
+                  anchors.fill: parent
+            }
       }
 
       property list<string> _NamesOfStudents: ["Иванов И.И",
@@ -95,6 +157,11 @@ Item {
       Attendance
       {
             id: _Attendance
+            Component.onCompleted: {
+                  if (_Attendance._ErrorMessage != "") {
+                        _ErrorPopup.open()
+                  }
+            }
       }
 
       Rectangle {
@@ -119,7 +186,16 @@ Item {
             MouseArea {
                   anchors.fill: parent
                   onClicked: {
-                        _Attendance._SendFile()
+                        var Results = _Attendance._SendFile()
+                        if (Results == -1)
+                        {
+                              _ErrorPopup.open()
+                        }
+                        else
+                        {
+                              _ErrorPopup.open()
+                        }
+
                         console.log("File Saved")
                   }
             }

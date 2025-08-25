@@ -504,7 +504,7 @@ Schedule::Schedule(QObject *parent)
       if (FileContent.size() > 2)
       {
             CurrentGroup = FileContent[FileContent.size()-1];
-            QCurrentGroup = QString::fromStdString(CurrentGroup);
+            QCurrentGroup = QString::fromStdString(CurrentGroup).toUpper();
             std::stringstream FullName{FileContent[1]};
             for (size_t Index{0};std::getline(FullName, Buffer, ' ');++Index)
             {
@@ -551,7 +551,7 @@ Schedule::Schedule(QObject *parent)
                   emit ErrorMessageChanged();
                   return;
             }
-            if (Buffer.find(' ') != std::string::npos)
+            if (Buffer.find(' ') == std::string::npos)
             {
                   ProcessFile(Buffer);
             }
@@ -678,7 +678,7 @@ void Schedule::_IncrementDay(signed int Value)
 
 int Schedule::_ChangeSchedule(QString Filename)
 {
-      QCurrentGroup = Filename;
+      QCurrentGroup = Filename.toUpper();
       emit QCurrentGroupChanged();
       std::string ConstString{Filename.toUpper().toStdString()};
       std::string PathString{"Files/" + ConstString + ".txt"};

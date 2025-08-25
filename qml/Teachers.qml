@@ -74,7 +74,6 @@ Item {
                         anchors.fill: parent
                         onClicked: {
                               _Searcher._Search(_SearchField.text)
-                              _Searcher._Items = _SearchField.text
                         }
                   }
                   Text {

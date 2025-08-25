@@ -37,12 +37,12 @@ Item {
                   id: _Logo
                   text: qsTr("MIREA\nAPP")
 
-                  font.pointSize: 64 /*
+                  font.pointSize: Math.round((parent.width + parent.height)/23) /*
                               anchors.topMargin: 20
                                           anchors.centerIn: parent*/
 
-                  anchors.bottom: _MainItem.top
-                  anchors.bottomMargin: _YResolution * (ColorsNSizes._IconHolderScale - 0.1)
+                  anchors.top: parent.top
+                  anchors.topMargin: 15
                   color: "white"
                   anchors.horizontalCenter: parent.horizontalCenter
                   horizontalAlignment: Text.AlignHCenter
@@ -106,8 +106,8 @@ Item {
                   }
                   Text {
                         id: login_text
-                        text: qsTr("Login")
-                        font.pointSize: 48
+                        text: qsTr("ВХОД")
+                        font.pointSize: Math.round((parent.width + parent.height)/30)
                         font.bold: true
                         color: "white"
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -117,22 +117,14 @@ Item {
                   {
 
                         id: loginField
-                        placeholderText: "Login"
+                        placeholderText: "Логин"
                         placeholderTextColor: "red"
-
+                        font.pointSize: Math.round((parent.width + parent.height)/90)
                         anchors.top: login_text.bottom
                         anchors.topMargin: 20
                         anchors.horizontalCenter: parent.horizontalCenter
                         width: _XResolution / ColorsNSizes._TextFieldScale
-                        onWidthChanged: {
-                              if (loginField.width > 400) {
-                                    loginField.width = 400
-                                    passwordField.width = 400
-                              }
-                              if (_LoginButton.width > 300) {
-                                    _LoginButton.width = 300
-                              }
-                        }
+
                         background: Rectangle {
                               radius: 60
                               implicitWidth: _XResolution / ColorsNSizes._TextFieldScale
@@ -145,9 +137,9 @@ Item {
                   TextField //password field
                   {
                         id: passwordField
-                        placeholderText: "Password"
+                        placeholderText: "Пароль"
                         placeholderTextColor: "red"
-
+                        font.pointSize: Math.round((parent.width + parent.height)/90)
                         //echoMode: TextInput.Password debug - to size field
                         anchors.top: loginField.bottom
                         anchors.topMargin: 20
@@ -161,6 +153,7 @@ Item {
                               //color: control.enabled ? "transparent" : "#7881ae" debug
                               //border.color: control.enabled ? "#dbe2ef" : "transparent"
                         }
+
                   }
                   Rectangle //login button
                   {
@@ -169,12 +162,14 @@ Item {
                         width: _XResolution / ColorsNSizes._ButtonScaleX
                         height: _YResolution / ColorsNSizes._ButtonScaleY
                         Text {
-                              text: qsTr("ENTER")
-                              font.pointSize: 24
+                              id: _aText
+                              text: qsTr("ВОЙТИ")
+                              font.pointSize: Math.round((parent.width + parent.height)/16)
                               anchors.horizontalCenter: parent.horizontalCenter
                               anchors.verticalCenter: parent.verticalCenter
                               color: "#112D4E"
                         }
+
                         color: "#BBD0FF"
                         anchors.horizontalCenter: parent.horizontalCenter
 
@@ -183,13 +178,19 @@ Item {
                         MouseArea {
                               anchors.fill: parent
                               onClicked: {
-                                    if (_ServerCall._LoginInto(
+                                    var Results = _ServerCall._LoginInto(
                                                       loginField.text,
-                                                      passwordField.text) == 1) {
+                                                      passwordField.text)
+                                    if (Results == 1) {
 
                                           console.log("Login succesful")
                                           _Loader.source = "Schedule.qml"
-                                    } else {
+                                    } else if (Results == -1)
+                                    {
+                                          console.log("Login failed")
+                                          _Status.text = "Сервер не отвечает"
+                                    }
+                                          else {
                                           console.log("Login failed")
                                           _Status.text = "Неверный логин или пароль"
                                     }

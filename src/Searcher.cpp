@@ -17,13 +17,6 @@ QStringList Searcher::_GetItems()
 
 void Searcher::_PopulateItems(QStringList&)
 {
-      for (const auto& Iterator: Results)
-      {
-            _Items << Iterator.c_str();
-            qDebug() << "Appended"<< '\n';
-      }
-      qDebug() << "_List Populated"<< '\n';
-      emit listPopulated();
 }
 
 bool Searcher::RequestScheduleFile(std::string& Filename)
@@ -88,34 +81,109 @@ Searcher::~Searcher()
 
 void Searcher::_Search(QString aInput)
 {
+      _Items.clear();
       Results.clear();
+      Results.reserve(100);
       size_t Character{1};
       std::string Buffer{}, Input{aInput.toStdString()};
-
-      qDebug() << aInput << '\n';
-
+      std::vector<QString> FileContent{};
+      FileContent.reserve(60);
       for (; std::getline(TeachersList, Buffer);)
       {
-            if (int(Buffer[0]) == int(Input[0]))
+            if (QString::fromStdString(Buffer)[0] != aInput[0])
             {
-                  Results.insert(Buffer);
+                  continue;
+            }
+            qDebug() << int(Buffer[0]) << int(Input[0]);
+            FileContent.push_back(QString::fromStdString(Buffer));
+      }
+      bool IsOdd{1};
+      for (short Index{1}; Index < Input.size() - 1; ++Index)
+      {
+
+            if (IsOdd)
+            {
+                  if (FileContent.size() <= 1)
+                  {
+                        Results.clear();
+                        break;
+                  }
+                  Results.clear();
+                  for (short Inner{}; Inner < FileContent.size();++Inner)
+                  {
+                        if (FileContent[Inner][Index] != aInput[Index])
+                        {
+                              continue;
+                        }
+                        Results.push_back(FileContent[Inner]);
+                  }
+                  IsOdd = 0;
+            }
+            else
+            {
+                  if (Results.size() <= 1)
+                  {
+                        FileContent.clear();
+                        break;
+                  }
+                  FileContent.clear();
+                  for (short Inner{}; Inner < Results.size();++Inner)
+                  {
+                        if (Results[Inner][Index] != aInput[Index])
+                        {
+                              continue;
+                        }
+                        FileContent.push_back(QString::fromStdString(Buffer));
+                  }
+                  IsOdd = 1;
             }
       }
-
-      for (; Character < Input.size() && EndBit; ++Character)
+      if (Results.empty())
       {
-
-            Results = Iterate(Results, Input, Character);
+            for (short Index{}; Index < FileContent.size(); ++Index)
+            {
+                  _Items.append(FileContent[Index]);
+            }
       }
-      qDebug() << "Seach complited\n";
-      for (const auto& Iterator : Results)
+      else
       {
-            qDebug() << Iterator.c_str();
+            for (short Index{}; Index < Results.size(); ++Index)
+            {
+                  _Items.append(Results[Index]);
+            }
       }
-      //TeachersList.seekg(0);
-      TeachersList.close(); //перенос коретки в начало
-      TeachersList.open("Files/Teachers.txt", std::ios::in); // //в будущем надо будет сделать qml/data/Teachers.txt
-      _Items.clear();
+      emit listPopulated();
+
+
+
+      // Results.clear();
+      // size_t Character{1};
+      // std::string Buffer{}, Input{aInput.toStdString()};
+
+      // qDebug() << aInput << '\n';
+
+      // for (; std::getline(TeachersList, Buffer);)
+      // {
+      //       if (int(Buffer[0]) == int(Input[0]))
+      //       {
+      //             Results.insert(Buffer);
+      //       }
+      // }
+
+      // for (; Character < Input.size() && EndBit; ++Character)
+      // {
+
+      //       Results = Iterate(Results, Input, Character);
+      // }
+      // qDebug() << "Seach complited\n";
+      // for (const auto& Iterator : Results)
+      // {
+      //       qDebug() << Iterator.c_str();
+      // }
+      // //TeachersList.seekg(0);
+       TeachersList.close(); //перенос коретки в начало
+       TeachersList.open("Files/Teachers.txt", std::ios::in); // //в будущем надо будет сделать qml/data/Teachers.txt
+      // _Items.clear();
 
 }
 

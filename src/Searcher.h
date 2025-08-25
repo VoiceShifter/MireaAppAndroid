@@ -24,7 +24,7 @@ class Searcher : public QObject
     QStringList _Items;
     std::fstream TeachersList;
     std::fstream CacheFile;
-    std::unordered_set<std::string> Results;
+    std::vector<QString> Results;
 
     bool EndBit{ 1 };
 

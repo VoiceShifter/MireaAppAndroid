@@ -155,10 +155,9 @@ Item {
             id: _WeekDay
             text: _Schedule._OddDays[_Schedule._CurrentDayInt]._Day
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: _Breaker.top
-            anchors.bottomMargin: 10
-            color: "white"
 
+            color: "white"
+            anchors.top: _CurrentGroup.bottom
             font.bold: true
             font.pointSize: 28
       }
@@ -226,9 +225,9 @@ Item {
             color: "white"
             width: parent.width - 60
             height: 5
-            y: _YResolution / ColorsNSizes._BreakerScaleY
+            anchors.top: _WeekDay.bottom
+            anchors.topMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.topMargin: 20
       }
       Rectangle {
             z: -1

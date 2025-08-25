@@ -3,6 +3,8 @@
 # include <QNetworkDatagram>
 # include <QDebug>
 # include <QByteArray>
+# include <QtNetwork/QUdpSocket>
+# include <qudpsocket.h>>
 bool ServerCall::getIsLoged() const
 {
       return IsLoged;
@@ -45,7 +47,7 @@ void ServerCall::WriteCache(std::string &ToWrite)
 }
 
 
-bool ServerCall::_LoginInto(const QString &Login, const QString &Password)
+signed int ServerCall::_LoginInto(const QString &Login, const QString &Password)
 {
       MainSocket.bind(QHostAddress::LocalHost, 33333);
       std::stringstream Request;
@@ -61,6 +63,10 @@ bool ServerCall::_LoginInto(const QString &Login, const QString &Password)
       {
             WriteCache(Response);
             return 1;
+      }
+      else if (Response.empty())
+      {
+            return -1;
       }
       return 0;
 }

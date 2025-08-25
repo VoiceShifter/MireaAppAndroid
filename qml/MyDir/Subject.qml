@@ -83,6 +83,8 @@ Rectangle {
             anchors.top: _TeacherText.bottom
             anchors.topMargin: 5
             visible: (_SubjectName == "Empty" ? false : true)
+            width: _PlaceText.width - 10
+            wrapMode: Text.Wrap
 
       }
       // signal clicked
