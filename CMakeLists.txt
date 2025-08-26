@@ -4,7 +4,11 @@ project(MireaApp VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
+find_package(Qt6 6.9 REQUIRED COMPONENTS Quick
+      Qml
+      QuickControls2
+      Svg
+)
 
 qt_standard_project_setup()
 
@@ -16,36 +20,31 @@ qt_add_qml_module(appTest
       URI MireaApp
       VERSION 1.0
       SOURCES
-            src/main.cpp
-            src/SocketCall.h src/SocketCall.cpp
-            src/Searcher.h src/Searcher.cpp
-            src/JsonParser.h src/JsonParser.cpp
-            src/LoginCall.h src/LoginCall.cpp
-            src/Schedule.hpp src/Schedule.cpp
-            src/AttendanceSystem.hpp src/AttendanceSystem.cpp
-
+            ./src/main.cpp
+            ./src/SocketCall.h          ./src/SocketCall.cpp
+            ./src/Searcher.h            ./src/Searcher.cpp
+            ./src/JsonParser.h          ./src/JsonParser.cpp
+            ./src/LoginCall.h           ./src/LoginCall.cpp
+            ./src/Schedule.hpp          ./src/Schedule.cpp
+            ./src/SubjectSystem.hpp     ./src/SubjectSystem.cpp
+            ./src/Reseter.hpp           ./src/Reseter.cpp
       QML_FILES
-            qml/LoginPage.qml
-            qml/Main.qml
-            qml/MyDir/ColorsNSizes.qml
-            qml/MyDir/Icons/home.svg
-            qml/MyDir/MyDrawer.qml
-            qml/Schedule.qml
-            qml/MyDir/Subject.qml
-            qml/Attendance.qml
-            qml/MyDir/AttendanceLine.qml
-            qml/MyDir/qmldir
-            qml/Teachers.qml
-
+            ./qml/LoginPage.qml
+            ./qml/Main.qml
+            ./qml/MyDir/ColorsNSizes.qml
+            ./qml/MyDir/Icons/home.svg
+            ./qml/MyDir/MyDrawer.qml
+            ./qml/Schedule.qml
+            ./qml/MyDir/Subject.qml
+            ./qml/Attendance.qml
+            ./qml/MyDir/AttendanceLine.qml
+            ./qml/MyDir/qmldir
+            ./qml/Teachers.qml
+            ./qml/SubjectPage.qml
+            ./qml/MyDir/File.qml
       RESOURCES
-            src/data/Teachers.txt
-            src/data/Cache.txt
-            SOURCES src/SubjectSystem.hpp src/SubjectSystem.cpp
-            QML_FILES qml/SubjectPage.qml
-            QML_FILES qml/MyDir/File.qml
-            SOURCES src/Reseter.hpp src/Reseter.cpp
-
-
+            ./src/data/Teachers.txt
+            ./src/data/Cache.txt  
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -61,10 +60,14 @@ set_target_properties(appTest PROPERTIES
 
 
 )
-target_link_libraries(appTest
-    PRIVATE Qt6::Quick
-)
 
+target_link_libraries(appTest
+    PRIVATE
+        Qt6::Quick
+        Qt6::Qml
+        Qt6::QuickControls2
+        Qt6::Svg
+)
 if (ANDROID)
       include(${CMAKE_SOURCE_DIR}/android_openssl/android_openssl.cmake)
 endif()
