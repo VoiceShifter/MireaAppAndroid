@@ -2,7 +2,6 @@ import QtQuick
 import QtLocation 5.15
 import QtQuick.Controls
 import "MyDir"
-import com.Attendance 1.0
 Item {
 
       property int _XResolution: parent.width
@@ -152,15 +151,6 @@ Item {
             delegate: AttendanceLine {
                   id: _Delegat
                   _StudentName: modelData
-            }
-      }
-      Attendance
-      {
-            id: _Attendance
-            Component.onCompleted: {
-                  if (_Attendance._ErrorMessage != "") {
-                        _ErrorPopup.open()
-                  }
             }
       }
 

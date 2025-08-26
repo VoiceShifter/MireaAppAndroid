@@ -1,10 +1,10 @@
-#include "LoginCall.h"
+#include "ServerCall.h"
 # include <sstream>
 # include <QNetworkDatagram>
 # include <QDebug>
 # include <QByteArray>
 # include <QtNetwork/QUdpSocket>
-# include <qudpsocket.h>>
+# include <qudpsocket.h>
 bool ServerCall::getIsLoged() const
 {
       return IsLoged;
@@ -39,7 +39,7 @@ ServerCall::ServerCall(QObject *parent)
       CacheFile.close();      
 }
 
-void ServerCall::WriteCache(std::string &ToWrite)
+void ServerCall::WriteCache(const std::string &ToWrite)
 {
       CacheFile.open("Files/Cache.txt", std::ios::out);
       CacheFile << ToWrite;
