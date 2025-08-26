@@ -6,7 +6,7 @@ Rectangle {
     width: parent.width
     height: 60
     color: _LightBlue
-    property string _StudentName: ""
+    property string _StudentName: "Имя студента"
     property string _First: ""
     property string _Second: ""
     property string _Third: ""
@@ -18,6 +18,7 @@ Rectangle {
         anchors.right: _aFirst.left
         anchors.rightMargin: 20
         font.bold: true
+        font.pointSize: (ColorsNSizes._SmallFont)
         anchors.verticalCenter: parent.verticalCenter
     }
 
