@@ -6,10 +6,10 @@
 class Reseter : public QObject
 {
       Q_OBJECT
-  public:
+public:
       explicit Reseter(QObject *parent = nullptr);
       Q_INVOKABLE void _Reset();
-  signals:
+signals:
 };
 
 #endif // RESETER_HPP

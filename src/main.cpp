@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
       // QAbstractSocket::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
       // loop.exec();
       // qDebug() << reply->readAll(); //debug
-      qmlRegisterType<SocketCall>("com.SocketCall", 1, 0, "Socket");
       qmlRegisterType<Searcher>("com.Searcher", 1, 0, "Searcher");
       qmlRegisterType<Schedule>("com.Schedule", 1, 0, "Schedule");
       qmlRegisterType<ServerCall>("com.ServerCall", 1, 0, "ServerCall");

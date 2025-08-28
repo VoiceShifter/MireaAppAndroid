@@ -9,7 +9,7 @@ struct DaysContentStruct : public QObject
 {
       Q_OBJECT
 
-  public:
+public:
       QStringList TeacherNames{};
       QStringList ItemNames{};
       QStringList Places{};
@@ -26,14 +26,14 @@ struct DaysContentStruct : public QObject
       QString getDay() const;
       void setDay(const QString &newDay);
 
-  signals:
+signals:
       void TeacherNamesChanged();
       void ItemNamesChanged();
       void PlacesChanged();
       void TypesChanged();
       void DayChanged();
 
-  private:
+private:
       Q_PROPERTY(QStringList _TeacherNames READ getTeacherNames WRITE setTeacherNames NOTIFY TeacherNamesChanged)
       Q_PROPERTY(QStringList _ItemNames    READ getItemNames    WRITE setItemNames    NOTIFY ItemNamesChanged   )
       Q_PROPERTY(QStringList _Places       READ getPlaces       WRITE setPlaces       NOTIFY PlacesChanged      )
@@ -51,14 +51,14 @@ class Schedule : public QObject
       void ProcessTeachersFile(std::string& FilePath);      
       QString ErrorMessage{};
       QString QCurrentGroup{};
-  public:
+public:
       explicit Schedule(QObject *parent = nullptr);
       QVector<DaysContentStruct*> Days;
       QVector<DaysContentStruct*> OddDays;
       QVector<DaysContentStruct*> EvenDays;
       void PrepareStructures();
       std::vector<std::string> DaysStringArray{"ПОНЕДЕЛЬНИК", "ВТОРНИК", "СРЕДА", "ЧЕТВЕРГ", "ПЯТНИЦА",
-                                                "СУББОТА", "ВОСКРЕСЕНЬЕ"};
+                                               "СУББОТА", "ВОСКРЕСЕНЬЕ"};
       signed int  CurrentDayInt{};
       signed int  CurrentWeekNumber{};
       std::string CurrentDayString{};
@@ -94,7 +94,7 @@ class Schedule : public QObject
       QString getQCurrentGroup() const;
       void setQCurrentGroup(const QString &newQCurrentGroup);
 
-  signals:
+signals:
       void DaysChanged();
       void OddDaysChanged();
       void EvenDaysChanged();
@@ -107,7 +107,7 @@ class Schedule : public QObject
 
       void QCurrentGroupChanged();
 
-  private:
+private:
       Q_PROPERTY(QVector<DaysContentStruct*> _Days READ getDays WRITE setDays NOTIFY DaysChanged FINAL)
       Q_PROPERTY(QVector<DaysContentStruct*> _OddDays READ OddgetDays NOTIFY OddDaysChanged FINAL)
       Q_PROPERTY(QVector<DaysContentStruct*> _EvenDays READ EvengetDays NOTIFY EvenDaysChanged FINAL)

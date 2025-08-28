@@ -15,7 +15,8 @@ class ServerCall : public QObject
       std::fstream CacheFile;
       std::vector<std::string> CacheContent;
       bool IsLoged;
-  public:
+
+public:
       ServerCall(QObject *parent = nullptr);
       void WriteCache(const std::string &ToWrite);
       Q_INVOKABLE signed int _LoginInto(const QString& Login, const QString& Password); //debug Change from local Ip
@@ -23,10 +24,10 @@ class ServerCall : public QObject
       bool getIsLoged() const;
       void setIsLoged(bool newIsLoged);
 
-  signals:
+signals:
       void IsLogedChanged();
 
-  private:
+private:
       Q_PROPERTY(bool _IsLoged READ getIsLoged WRITE setIsLoged NOTIFY IsLogedChanged FINAL)
 };
 

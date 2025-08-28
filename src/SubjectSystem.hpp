@@ -11,7 +11,7 @@ class SubjectSystem : public QObject
       QStringList FileNames{};
       QString SubjectName{};
       QString UserName{};
-  public:
+public:
       explicit SubjectSystem(QObject *parent = nullptr);
       QUdpSocket  MainSocket;
       bool AccessFiles(QString &FileName, QString &SubjectName);
@@ -26,13 +26,13 @@ class SubjectSystem : public QObject
       QString getUserName() const;
       void setUserName(const QString &newUserName);
 
-  signals:
+signals:
       void FileNamesChanged();
       void SubjectNameChanged();
 
       void UserNameChanged();
 
-  private:
+private:
       Q_PROPERTY(QStringList _FileNames READ getFileNames WRITE setFileNames NOTIFY FileNamesChanged FINAL)
       Q_PROPERTY(QString _SubjectName READ getSubjectName WRITE setSubjectName NOTIFY SubjectNameChanged FINAL)
       Q_PROPERTY(QString _UserName READ getUserName WRITE setUserName NOTIFY UserNameChanged FINAL)

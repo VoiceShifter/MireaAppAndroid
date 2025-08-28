@@ -21,7 +21,6 @@ qt_add_qml_module(ScheduleApplication
       VERSION 1.0
       SOURCES
             ./src/main.cpp
-            ./src/SocketCall.h          ./src/SocketCall.cpp
             ./src/Searcher.h            ./src/Searcher.cpp
             ./src/JsonParser.h          ./src/JsonParser.cpp
             ./src/ServerCall.h           ./src/ServerCall.cpp

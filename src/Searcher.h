@@ -17,39 +17,39 @@
 
 class Searcher : public QObject
 {
-    Q_OBJECT
-    Q_PROPERTY(QStringList _Items READ _GetItems WRITE _PopulateItems NOTIFY listPopulated) /*WRITE _SetItems
+      Q_OBJECT
+      Q_PROPERTY(QStringList _Items READ _GetItems WRITE _PopulateItems NOTIFY listPopulated) /*WRITE _SetItems
                NOTIFY _ItemsChanged*/
-    QUdpSocket  MainSocket;
-    QStringList _Items;
-    std::fstream TeachersList;
-    std::fstream CacheFile;
-    std::vector<QString> Results;
+      QUdpSocket  MainSocket;
+      QStringList _Items;
+      std::fstream TeachersList;
+      std::fstream CacheFile;
+      std::vector<QString> Results;
 
-    bool EndBit{ 1 };
+      bool EndBit{ 1 };
 
-    Q_PROPERTY(QString Cache READ Cache)
+      Q_PROPERTY(QString Cache READ Cache)
 
-    QString _Cache;
+      QString _Cache;
 public:
-    QStringList _GetItems();
-    void _PopulateItems(QStringList&);
-    bool RequestScheduleFile(std::string& Filename);
+      QStringList _GetItems();
+      void _PopulateItems(QStringList&);
+      bool RequestScheduleFile(std::string& Filename);
 
-    Q_INVOKABLE void _PrintItems();
-    Q_INVOKABLE void _Search(QString Input);
-    Q_INVOKABLE bool _ResultClicked(QString Input);
-    explicit Searcher(QObject *parent = nullptr);
-    ~Searcher();
-    std::unordered_set<std::string> Iterate
-          (std::unordered_set<std::string>& aSet, std::string& Input, size_t Character);
+      Q_INVOKABLE void _PrintItems();
+      Q_INVOKABLE void _Search(QString Input);
+      Q_INVOKABLE bool _ResultClicked(QString Input);
+      explicit Searcher(QObject *parent = nullptr);
+      ~Searcher();
+      std::unordered_set<std::string> Iterate
+            (std::unordered_set<std::string>& aSet, std::string& Input, size_t Character);
 
 
-    const QString &Cache() const;
+      const QString &Cache() const;
 
 signals:
-    void listPopulated();
-    void constructed();
+      void listPopulated();
+      void constructed();
 };
 
 #endif // SEARCHER_H
